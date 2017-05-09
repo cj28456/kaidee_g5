@@ -1,0 +1,879 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		026B88F95B6F7F8815E0C59C /* Pods_kaideeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AD5D11C802868FA4A70243 /* Pods_kaideeTests.framework */; };
+		14CE023C2628C1B5C43CD70D /* Pods_kaidee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51810808A6B3FBB41CB5394D /* Pods_kaidee.framework */; };
+		67048D8E1EB82F5D00CB89E0 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D8D1EB82F5D00CB89E0 /* NotificationViewController.swift */; };
+		67048D901EB8322100CB89E0 /* notiTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D8F1EB8322100CB89E0 /* notiTableCell.swift */; };
+		67048D921EB8372F00CB89E0 /* myPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D911EB8372F00CB89E0 /* myPostTableCell.swift */; };
+		67048D961EB86C0E00CB89E0 /* chatTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D951EB86C0E00CB89E0 /* chatTableCell.swift */; };
+		67048D981EB8A9CE00CB89E0 /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D971EB8A9CE00CB89E0 /* ChatMessageViewController.swift */; };
+		67048D9A1EB8AA4B00CB89E0 /* chatSellerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D991EB8AA4B00CB89E0 /* chatSellerTableCell.swift */; };
+		67048D9C1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D9B1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift */; };
+		67048D9E1EB8C2C600CB89E0 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */; };
+		677B4CFF1EB61B7B00F436EA /* categoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4CFE1EB61B7B00F436EA /* categoryCollectionCell.swift */; };
+		677B4D011EB61BC900F436EA /* itemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D001EB61BC900F436EA /* itemCollectionCell.swift */; };
+		677B4D031EB61BDE00F436EA /* adsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D021EB61BDE00F436EA /* adsCollectionCell.swift */; };
+		677B4D051EB61C0C00F436EA /* subCategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D041EB61C0C00F436EA /* subCategoryCollectionCell.swift */; };
+		677B4D071EB620E100F436EA /* itemListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D061EB620E100F436EA /* itemListCollectionCell.swift */; };
+		677B4D151EB63BF600F436EA /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D141EB63BF600F436EA /* iCarousel.m */; };
+		677B4D191EB657FC00F436EA /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D181EB657FC00F436EA /* ProductDetailViewController.swift */; };
+		677B4D1B1EB6580D00F436EA /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D1A1EB6580D00F436EA /* ProductListViewController.swift */; };
+		679449F11EC15D7000129B69 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679449F01EC15D7000129B69 /* LoginViewController.swift */; };
+		679449F31EC164F100129B69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679449F21EC164F100129B69 /* TabBarController.swift */; };
+		679449F51EC1952700129B69 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679449F41EC1952700129B69 /* FirstViewController.swift */; };
+		679E2F581EB6EA37009458BA /* subCategoryListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F571EB6EA37009458BA /* subCategoryListCollectionCell.swift */; };
+		679E2F5D1EB742F2009458BA /* profileInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F5C1EB742F2009458BA /* profileInfoTableCell.swift */; };
+		679E2F5F1EB74304009458BA /* settingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F5E1EB74304009458BA /* settingTableCell.swift */; };
+		679E2F611EB74B64009458BA /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F601EB74B64009458BA /* FilterViewController.swift */; };
+		67CE2DCE1EB228A000B21895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCD1EB228A000B21895 /* AppDelegate.swift */; };
+		67CE2DD01EB228A000B21895 /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */; };
+		67CE2DD21EB228A000B21895 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DD11EB228A000B21895 /* MyPostViewController.swift */; };
+		67CE2DD51EB228A000B21895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CE2DD31EB228A000B21895 /* Main.storyboard */; };
+		67CE2DD71EB228A100B21895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67CE2DD61EB228A100B21895 /* Assets.xcassets */; };
+		67CE2DDA1EB228A100B21895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CE2DD81EB228A100B21895 /* LaunchScreen.storyboard */; };
+		67CE2DE51EB228A100B21895 /* kaideeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DE41EB228A100B21895 /* kaideeTests.swift */; };
+		67CE2DF01EB228A100B21895 /* kaideeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DEF1EB228A100B21895 /* kaideeUITests.swift */; };
+		67CE2DFE1EB229E000B21895 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DFD1EB229E000B21895 /* ChatViewController.swift */; };
+		67CE2E021EB22A0600B21895 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2E011EB22A0600B21895 /* ProfileViewController.swift */; };
+		67CE2E041EB22B9500B21895 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2E031EB22B9500B21895 /* CategoryViewController.swift */; };
+		76C633C7DB12B4147161E25A /* Pods_kaideeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56DC516B8D86FFC7F60DD795 /* Pods_kaideeUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		67CE2DE11EB228A100B21895 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67CE2DC21EB2289700B21895 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67CE2DC91EB2289700B21895;
+			remoteInfo = kaidee;
+		};
+		67CE2DEC1EB228A100B21895 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67CE2DC21EB2289700B21895 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67CE2DC91EB2289700B21895;
+			remoteInfo = kaidee;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1806D96F6ACDDC043E418363 /* Pods-kaidee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaidee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaidee/Pods-kaidee.debug.xcconfig"; sourceTree = "<group>"; };
+		51810808A6B3FBB41CB5394D /* Pods_kaidee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaidee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AD5D11C802868FA4A70243 /* Pods_kaideeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaideeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56DC516B8D86FFC7F60DD795 /* Pods_kaideeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaideeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67048D8D1EB82F5D00CB89E0 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		67048D8F1EB8322100CB89E0 /* notiTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notiTableCell.swift; sourceTree = "<group>"; };
+		67048D911EB8372F00CB89E0 /* myPostTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myPostTableCell.swift; sourceTree = "<group>"; };
+		67048D951EB86C0E00CB89E0 /* chatTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatTableCell.swift; sourceTree = "<group>"; };
+		67048D971EB8A9CE00CB89E0 /* ChatMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
+		67048D991EB8AA4B00CB89E0 /* chatSellerTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatSellerTableCell.swift; sourceTree = "<group>"; };
+		67048D9B1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatBuyerTableCell.swift; sourceTree = "<group>"; };
+		67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		677B4CFE1EB61B7B00F436EA /* categoryCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryCollectionCell.swift; sourceTree = "<group>"; };
+		677B4D001EB61BC900F436EA /* itemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemCollectionCell.swift; sourceTree = "<group>"; };
+		677B4D021EB61BDE00F436EA /* adsCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adsCollectionCell.swift; sourceTree = "<group>"; };
+		677B4D041EB61C0C00F436EA /* subCategoryCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subCategoryCollectionCell.swift; sourceTree = "<group>"; };
+		677B4D061EB620E100F436EA /* itemListCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemListCollectionCell.swift; sourceTree = "<group>"; };
+		677B4D121EB63BF500F436EA /* kaidee-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kaidee-Bridging-Header.h"; sourceTree = "<group>"; };
+		677B4D131EB63BF600F436EA /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		677B4D141EB63BF600F436EA /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		677B4D181EB657FC00F436EA /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		677B4D1A1EB6580D00F436EA /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		679449F01EC15D7000129B69 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		679449F21EC164F100129B69 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		679449F41EC1952700129B69 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		679E2F571EB6EA37009458BA /* subCategoryListCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subCategoryListCollectionCell.swift; sourceTree = "<group>"; };
+		679E2F5A1EB70F34009458BA /* ApiList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiList.h; sourceTree = "<group>"; };
+		679E2F5C1EB742F2009458BA /* profileInfoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileInfoTableCell.swift; sourceTree = "<group>"; };
+		679E2F5E1EB74304009458BA /* settingTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingTableCell.swift; sourceTree = "<group>"; };
+		679E2F601EB74B64009458BA /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		67CE2DCA1EB228A000B21895 /* kaidee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67CE2DCD1EB228A000B21895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
+		67CE2DD11EB228A000B21895 /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
+		67CE2DD41EB228A000B21895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		67CE2DD61EB228A100B21895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		67CE2DD91EB228A100B21895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		67CE2DDB1EB228A100B21895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67CE2DE01EB228A100B21895 /* kaideeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaideeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67CE2DE41EB228A100B21895 /* kaideeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaideeTests.swift; sourceTree = "<group>"; };
+		67CE2DE61EB228A100B21895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67CE2DEB1EB228A100B21895 /* kaideeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaideeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67CE2DEF1EB228A100B21895 /* kaideeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaideeUITests.swift; sourceTree = "<group>"; };
+		67CE2DF11EB228A100B21895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67CE2DFD1EB229E000B21895 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		67CE2E011EB22A0600B21895 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		67CE2E031EB22B9500B21895 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		723B2AB8DC0386EA65CDAB34 /* Pods-kaideeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaideeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaideeTests/Pods-kaideeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		758A7C524787DF90F2A8C950 /* Pods-kaideeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaideeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kaideeUITests/Pods-kaideeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		94A00EE35CC5640B3191FB3A /* Pods-kaidee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaidee.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaidee/Pods-kaidee.release.xcconfig"; sourceTree = "<group>"; };
+		BEC10364C9FA9AD83378E406 /* Pods-kaideeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaideeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaideeUITests/Pods-kaideeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E538917AE0B161F4B4704577 /* Pods-kaideeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaideeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kaideeTests/Pods-kaideeTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67CE2DC71EB2289700B21895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14CE023C2628C1B5C43CD70D /* Pods_kaidee.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67CE2DDD1EB228A100B21895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026B88F95B6F7F8815E0C59C /* Pods_kaideeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67CE2DE81EB228A100B21895 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76C633C7DB12B4147161E25A /* Pods_kaideeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		677B4CFD1EB61B5400F436EA /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				679E2F591EB6EED4009458BA /* header */,
+				677B4CFE1EB61B7B00F436EA /* categoryCollectionCell.swift */,
+				677B4D041EB61C0C00F436EA /* subCategoryCollectionCell.swift */,
+				677B4D001EB61BC900F436EA /* itemCollectionCell.swift */,
+				677B4D061EB620E100F436EA /* itemListCollectionCell.swift */,
+				679E2F5B1EB742D2009458BA /* profile */,
+				67048D8F1EB8322100CB89E0 /* notiTableCell.swift */,
+				67048D911EB8372F00CB89E0 /* myPostTableCell.swift */,
+				67048D951EB86C0E00CB89E0 /* chatTableCell.swift */,
+				67048D991EB8AA4B00CB89E0 /* chatSellerTableCell.swift */,
+				67048D9B1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift */,
+			);
+			name = CustomCell;
+			sourceTree = "<group>";
+		};
+		679E2F591EB6EED4009458BA /* header */ = {
+			isa = PBXGroup;
+			children = (
+				677B4D021EB61BDE00F436EA /* adsCollectionCell.swift */,
+				679E2F571EB6EA37009458BA /* subCategoryListCollectionCell.swift */,
+			);
+			name = header;
+			sourceTree = "<group>";
+		};
+		679E2F5B1EB742D2009458BA /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				679E2F5C1EB742F2009458BA /* profileInfoTableCell.swift */,
+				679E2F5E1EB74304009458BA /* settingTableCell.swift */,
+			);
+			name = profile;
+			sourceTree = "<group>";
+		};
+		679E2F621EB79252009458BA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				67CE2E031EB22B9500B21895 /* CategoryViewController.swift */,
+				67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */,
+				677B4D1A1EB6580D00F436EA /* ProductListViewController.swift */,
+				677B4D181EB657FC00F436EA /* ProductDetailViewController.swift */,
+				679E2F601EB74B64009458BA /* FilterViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		67CE2DC11EB2289700B21895 = {
+			isa = PBXGroup;
+			children = (
+				679E2F5A1EB70F34009458BA /* ApiList.h */,
+				677B4D131EB63BF600F436EA /* iCarousel.h */,
+				677B4D141EB63BF600F436EA /* iCarousel.m */,
+				67CE2DCC1EB228A000B21895 /* kaidee */,
+				67CE2DE31EB228A100B21895 /* kaideeTests */,
+				67CE2DEE1EB228A100B21895 /* kaideeUITests */,
+				67CE2DCB1EB228A000B21895 /* Products */,
+				677B4D121EB63BF500F436EA /* kaidee-Bridging-Header.h */,
+				D579DB06E8023416F47826D9 /* Pods */,
+				9B218A75001D5AB99C511F49 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		67CE2DCB1EB228A000B21895 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67CE2DCA1EB228A000B21895 /* kaidee.app */,
+				67CE2DE01EB228A100B21895 /* kaideeTests.xctest */,
+				67CE2DEB1EB228A100B21895 /* kaideeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67CE2DCC1EB228A000B21895 /* kaidee */ = {
+			isa = PBXGroup;
+			children = (
+				67CE2DCD1EB228A000B21895 /* AppDelegate.swift */,
+				679449F41EC1952700129B69 /* FirstViewController.swift */,
+				679E2F621EB79252009458BA /* Home */,
+				67CE2DD11EB228A000B21895 /* MyPostViewController.swift */,
+				67CE2DFD1EB229E000B21895 /* ChatViewController.swift */,
+				67048D971EB8A9CE00CB89E0 /* ChatMessageViewController.swift */,
+				67048D8D1EB82F5D00CB89E0 /* NotificationViewController.swift */,
+				67CE2E011EB22A0600B21895 /* ProfileViewController.swift */,
+				67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */,
+				679449F01EC15D7000129B69 /* LoginViewController.swift */,
+				679449F21EC164F100129B69 /* TabBarController.swift */,
+				67CE2DD31EB228A000B21895 /* Main.storyboard */,
+				677B4CFD1EB61B5400F436EA /* CustomCell */,
+				67CE2DD61EB228A100B21895 /* Assets.xcassets */,
+				67CE2DD81EB228A100B21895 /* LaunchScreen.storyboard */,
+				67CE2DDB1EB228A100B21895 /* Info.plist */,
+			);
+			path = kaidee;
+			sourceTree = "<group>";
+		};
+		67CE2DE31EB228A100B21895 /* kaideeTests */ = {
+			isa = PBXGroup;
+			children = (
+				67CE2DE41EB228A100B21895 /* kaideeTests.swift */,
+				67CE2DE61EB228A100B21895 /* Info.plist */,
+			);
+			path = kaideeTests;
+			sourceTree = "<group>";
+		};
+		67CE2DEE1EB228A100B21895 /* kaideeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				67CE2DEF1EB228A100B21895 /* kaideeUITests.swift */,
+				67CE2DF11EB228A100B21895 /* Info.plist */,
+			);
+			path = kaideeUITests;
+			sourceTree = "<group>";
+		};
+		9B218A75001D5AB99C511F49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51810808A6B3FBB41CB5394D /* Pods_kaidee.framework */,
+				56AD5D11C802868FA4A70243 /* Pods_kaideeTests.framework */,
+				56DC516B8D86FFC7F60DD795 /* Pods_kaideeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D579DB06E8023416F47826D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1806D96F6ACDDC043E418363 /* Pods-kaidee.debug.xcconfig */,
+				94A00EE35CC5640B3191FB3A /* Pods-kaidee.release.xcconfig */,
+				723B2AB8DC0386EA65CDAB34 /* Pods-kaideeTests.debug.xcconfig */,
+				E538917AE0B161F4B4704577 /* Pods-kaideeTests.release.xcconfig */,
+				758A7C524787DF90F2A8C950 /* Pods-kaideeUITests.debug.xcconfig */,
+				BEC10364C9FA9AD83378E406 /* Pods-kaideeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67CE2DC91EB2289700B21895 /* kaidee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67CE2DF41EB228A100B21895 /* Build configuration list for PBXNativeTarget "kaidee" */;
+			buildPhases = (
+				A788D10D3637619C8453727A /* [CP] Check Pods Manifest.lock */,
+				67CE2DC61EB2289700B21895 /* Sources */,
+				67CE2DC71EB2289700B21895 /* Frameworks */,
+				67CE2DC81EB2289700B21895 /* Resources */,
+				FCED4B3EA21E0DEEB0B99186 /* [CP] Embed Pods Frameworks */,
+				2032595F2433959B0DADBE32 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kaidee;
+			productName = kaidee;
+			productReference = 67CE2DCA1EB228A000B21895 /* kaidee.app */;
+			productType = "com.apple.product-type.application";
+		};
+		67CE2DDF1EB228A100B21895 /* kaideeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67CE2DF71EB228A100B21895 /* Build configuration list for PBXNativeTarget "kaideeTests" */;
+			buildPhases = (
+				A295B0673F92A644C2E31179 /* [CP] Check Pods Manifest.lock */,
+				67CE2DDC1EB228A100B21895 /* Sources */,
+				67CE2DDD1EB228A100B21895 /* Frameworks */,
+				67CE2DDE1EB228A100B21895 /* Resources */,
+				838761F22C17144B690CDAB1 /* [CP] Embed Pods Frameworks */,
+				E68D2DC7A41BE392813B5028 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67CE2DE21EB228A100B21895 /* PBXTargetDependency */,
+			);
+			name = kaideeTests;
+			productName = kaideeTests;
+			productReference = 67CE2DE01EB228A100B21895 /* kaideeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		67CE2DEA1EB228A100B21895 /* kaideeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67CE2DFA1EB228A100B21895 /* Build configuration list for PBXNativeTarget "kaideeUITests" */;
+			buildPhases = (
+				6049AA9E66D605835B3E27E4 /* [CP] Check Pods Manifest.lock */,
+				67CE2DE71EB228A100B21895 /* Sources */,
+				67CE2DE81EB228A100B21895 /* Frameworks */,
+				67CE2DE91EB228A100B21895 /* Resources */,
+				0279BF414054D1A02DAA5663 /* [CP] Embed Pods Frameworks */,
+				12F41928CAF8AA9DA2E628BB /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67CE2DED1EB228A100B21895 /* PBXTargetDependency */,
+			);
+			name = kaideeUITests;
+			productName = kaideeUITests;
+			productReference = 67CE2DEB1EB228A100B21895 /* kaideeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67CE2DC21EB2289700B21895 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = G5;
+				TargetAttributes = {
+					67CE2DC91EB2289700B21895 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = K889RDUKHX;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					67CE2DDF1EB228A100B21895 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 67CE2DC91EB2289700B21895;
+					};
+					67CE2DEA1EB228A100B21895 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 67CE2DC91EB2289700B21895;
+					};
+				};
+			};
+			buildConfigurationList = 67CE2DC51EB2289700B21895 /* Build configuration list for PBXProject "kaidee" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 67CE2DC11EB2289700B21895;
+			productRefGroup = 67CE2DCB1EB228A000B21895 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67CE2DC91EB2289700B21895 /* kaidee */,
+				67CE2DDF1EB228A100B21895 /* kaideeTests */,
+				67CE2DEA1EB228A100B21895 /* kaideeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67CE2DC81EB2289700B21895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67CE2DDA1EB228A100B21895 /* LaunchScreen.storyboard in Resources */,
+				67CE2DD71EB228A100B21895 /* Assets.xcassets in Resources */,
+				67CE2DD51EB228A000B21895 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67CE2DDE1EB228A100B21895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67CE2DE91EB228A100B21895 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0279BF414054D1A02DAA5663 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaideeUITests/Pods-kaideeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		12F41928CAF8AA9DA2E628BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaideeUITests/Pods-kaideeUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2032595F2433959B0DADBE32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaidee/Pods-kaidee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6049AA9E66D605835B3E27E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		838761F22C17144B690CDAB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaideeTests/Pods-kaideeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A295B0673F92A644C2E31179 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A788D10D3637619C8453727A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E68D2DC7A41BE392813B5028 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaideeTests/Pods-kaideeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCED4B3EA21E0DEEB0B99186 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kaidee/Pods-kaidee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67CE2DC61EB2289700B21895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				679449F11EC15D7000129B69 /* LoginViewController.swift in Sources */,
+				677B4D011EB61BC900F436EA /* itemCollectionCell.swift in Sources */,
+				677B4D051EB61C0C00F436EA /* subCategoryCollectionCell.swift in Sources */,
+				677B4D071EB620E100F436EA /* itemListCollectionCell.swift in Sources */,
+				67048D9E1EB8C2C600CB89E0 /* AddNewViewController.swift in Sources */,
+				67CE2E021EB22A0600B21895 /* ProfileViewController.swift in Sources */,
+				67048D901EB8322100CB89E0 /* notiTableCell.swift in Sources */,
+				679E2F611EB74B64009458BA /* FilterViewController.swift in Sources */,
+				67048D981EB8A9CE00CB89E0 /* ChatMessageViewController.swift in Sources */,
+				677B4CFF1EB61B7B00F436EA /* categoryCollectionCell.swift in Sources */,
+				679449F51EC1952700129B69 /* FirstViewController.swift in Sources */,
+				679E2F5F1EB74304009458BA /* settingTableCell.swift in Sources */,
+				677B4D151EB63BF600F436EA /* iCarousel.m in Sources */,
+				67048D921EB8372F00CB89E0 /* myPostTableCell.swift in Sources */,
+				67CE2E041EB22B9500B21895 /* CategoryViewController.swift in Sources */,
+				67CE2DD21EB228A000B21895 /* MyPostViewController.swift in Sources */,
+				677B4D1B1EB6580D00F436EA /* ProductListViewController.swift in Sources */,
+				67048D9C1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift in Sources */,
+				679E2F5D1EB742F2009458BA /* profileInfoTableCell.swift in Sources */,
+				67048D961EB86C0E00CB89E0 /* chatTableCell.swift in Sources */,
+				67048D8E1EB82F5D00CB89E0 /* NotificationViewController.swift in Sources */,
+				677B4D031EB61BDE00F436EA /* adsCollectionCell.swift in Sources */,
+				677B4D191EB657FC00F436EA /* ProductDetailViewController.swift in Sources */,
+				67048D9A1EB8AA4B00CB89E0 /* chatSellerTableCell.swift in Sources */,
+				67CE2DCE1EB228A000B21895 /* AppDelegate.swift in Sources */,
+				67CE2DFE1EB229E000B21895 /* ChatViewController.swift in Sources */,
+				679449F31EC164F100129B69 /* TabBarController.swift in Sources */,
+				679E2F581EB6EA37009458BA /* subCategoryListCollectionCell.swift in Sources */,
+				67CE2DD01EB228A000B21895 /* SubCategoryViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67CE2DDC1EB228A100B21895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67CE2DE51EB228A100B21895 /* kaideeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67CE2DE71EB228A100B21895 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67CE2DF01EB228A100B21895 /* kaideeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		67CE2DE21EB228A100B21895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67CE2DC91EB2289700B21895 /* kaidee */;
+			targetProxy = 67CE2DE11EB228A100B21895 /* PBXContainerItemProxy */;
+		};
+		67CE2DED1EB228A100B21895 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67CE2DC91EB2289700B21895 /* kaidee */;
+			targetProxy = 67CE2DEC1EB228A100B21895 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		67CE2DD31EB228A000B21895 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67CE2DD41EB228A000B21895 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		67CE2DD81EB228A100B21895 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67CE2DD91EB228A100B21895 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		67CE2DF21EB228A100B21895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		67CE2DF31EB228A100B21895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67CE2DF51EB228A100B21895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1806D96F6ACDDC043E418363 /* Pods-kaidee.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = K889RDUKHX;
+				INFOPLIST_FILE = kaidee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.g5.kaidee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "kaidee-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		67CE2DF61EB228A100B21895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94A00EE35CC5640B3191FB3A /* Pods-kaidee.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = K889RDUKHX;
+				INFOPLIST_FILE = kaidee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.g5.kaidee;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "kaidee-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		67CE2DF81EB228A100B21895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 723B2AB8DC0386EA65CDAB34 /* Pods-kaideeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = kaideeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.g5.kaideeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kaidee.app/kaidee";
+			};
+			name = Debug;
+		};
+		67CE2DF91EB228A100B21895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E538917AE0B161F4B4704577 /* Pods-kaideeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = kaideeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.g5.kaideeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kaidee.app/kaidee";
+			};
+			name = Release;
+		};
+		67CE2DFB1EB228A100B21895 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 758A7C524787DF90F2A8C950 /* Pods-kaideeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = kaideeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.g5.kaideeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = kaidee;
+			};
+			name = Debug;
+		};
+		67CE2DFC1EB228A100B21895 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEC10364C9FA9AD83378E406 /* Pods-kaideeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = kaideeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.g5.kaideeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = kaidee;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67CE2DC51EB2289700B21895 /* Build configuration list for PBXProject "kaidee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67CE2DF21EB228A100B21895 /* Debug */,
+				67CE2DF31EB228A100B21895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67CE2DF41EB228A100B21895 /* Build configuration list for PBXNativeTarget "kaidee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67CE2DF51EB228A100B21895 /* Debug */,
+				67CE2DF61EB228A100B21895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67CE2DF71EB228A100B21895 /* Build configuration list for PBXNativeTarget "kaideeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67CE2DF81EB228A100B21895 /* Debug */,
+				67CE2DF91EB228A100B21895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67CE2DFA1EB228A100B21895 /* Build configuration list for PBXNativeTarget "kaideeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67CE2DFB1EB228A100B21895 /* Debug */,
+				67CE2DFC1EB228A100B21895 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67CE2DC21EB2289700B21895 /* Project object */;
+}
