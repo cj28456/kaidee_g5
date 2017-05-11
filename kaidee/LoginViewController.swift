@@ -13,6 +13,10 @@ class LoginViewController: UIViewController{
     
     override func viewDidLoad() {
         
+        //https://group5-kaidee-resolution.herokuapp.com/login
+        //post
+        //username, password
+    
     }
     
 

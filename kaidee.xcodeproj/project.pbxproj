@@ -32,6 +32,7 @@
 		679E2F5D1EB742F2009458BA /* profileInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F5C1EB742F2009458BA /* profileInfoTableCell.swift */; };
 		679E2F5F1EB74304009458BA /* settingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F5E1EB74304009458BA /* settingTableCell.swift */; };
 		679E2F611EB74B64009458BA /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F601EB74B64009458BA /* FilterViewController.swift */; };
+		67C6A9A61EC47FC90018A6EA /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */; };
 		67CE2DCE1EB228A000B21895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCD1EB228A000B21895 /* AppDelegate.swift */; };
 		67CE2DD01EB228A000B21895 /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */; };
 		67CE2DD21EB228A000B21895 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DD11EB228A000B21895 /* MyPostViewController.swift */; };
@@ -94,6 +95,7 @@
 		679E2F5C1EB742F2009458BA /* profileInfoTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileInfoTableCell.swift; sourceTree = "<group>"; };
 		679E2F5E1EB74304009458BA /* settingTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingTableCell.swift; sourceTree = "<group>"; };
 		679E2F601EB74B64009458BA /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		67CE2DCA1EB228A000B21895 /* kaidee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67CE2DCD1EB228A000B21895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				67CE2E011EB22A0600B21895 /* ProfileViewController.swift */,
 				67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */,
 				679449F01EC15D7000129B69 /* LoginViewController.swift */,
+				67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */,
 				679449F21EC164F100129B69 /* TabBarController.swift */,
 				67CE2DD31EB228A000B21895 /* Main.storyboard */,
 				677B4CFD1EB61B5400F436EA /* CustomCell */,
@@ -588,6 +591,7 @@
 				679E2F5D1EB742F2009458BA /* profileInfoTableCell.swift in Sources */,
 				67048D961EB86C0E00CB89E0 /* chatTableCell.swift in Sources */,
 				67048D8E1EB82F5D00CB89E0 /* NotificationViewController.swift in Sources */,
+				67C6A9A61EC47FC90018A6EA /* UserLoginViewController.swift in Sources */,
 				677B4D031EB61BDE00F436EA /* adsCollectionCell.swift in Sources */,
 				677B4D191EB657FC00F436EA /* ProductDetailViewController.swift in Sources */,
 				67048D9A1EB8AA4B00CB89E0 /* chatSellerTableCell.swift in Sources */,
