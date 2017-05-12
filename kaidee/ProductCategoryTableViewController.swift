@@ -1,0 +1,80 @@
+//
+//  ProductCategoryTableViewController.swift
+//  kaidee
+//
+//  Created by Toktak on 5/12/2560 BE.
+//  Copyright © 2560 G5. All rights reserved.
+//
+
+import UIKit
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
+
+class ProductCategoryTableViewController: UITableViewController {
+    
+    var categoryData : JSON!
+    var selectCategory :String!
+    
+    override func viewDidLoad() {
+        
+        SVProgressHUD.show()
+        //simple request
+        Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_product_cat",method:.get, parameters: nil).responseData{ response in
+            
+            if response.result.value != nil {
+                
+                self.categoryData = JSON(data: response.result.value!)
+                self.tableView.reloadData()
+            }
+            
+            SVProgressHUD.dismiss()
+        }
+        
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if categoryData.count > 0
+        {
+            return categoryData.count
+        }
+        
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productCategoryCell", for: indexPath)
+        cell.textLabel?.text = categoryData["product_cat"][indexPath.row]["name"].stringValue
+        
+        //productCategoryCell
+        return cell
+        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectCategory = categoryData["product_cat"][indexPath.row]["id"].stringValue
+        
+        performSegue(withIdentifier: "selectSubCategorySegue", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "selectSubCategorySegue") {
+            let svc = segue.destination as! SubCategoryViewController
+            svc.categoryId = selectCategory
+            
+        }
+    }
+    
+    
+    
+}

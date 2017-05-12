@@ -14,7 +14,7 @@ import SVProgressHUD
 
 
 
-class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
     
     let shipping = ["Kerry","Thai Post - EMS","Thai Post - Registerd Mail","aCommerce","CJGLs","DHL","FedEx","Line Man","Lalamove","รับด้วยตัวเอง"]
     let user = UserDefaults()
@@ -43,6 +43,18 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
         
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if textField == category
+        {
+            self.view.endEditing(true)
+            performSegue(withIdentifier: "selectCategorySegue", sender: nil)
+        }
+        
+    }
+    
+    //MARK:- table view
+
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -157,8 +169,7 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
 
             
             //define the data post parameter
-            if self.photoReady
-            {
+    
                 let image_data = UIImageJPEGRepresentation(self.selectedPhoto.image!, 0.3)!
                 body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
                 body.append("Content-Disposition:form-data; name=\"fileToUpload\"; filename=\"\(fname)\"\r\n".data(using: String.Encoding.utf8)!)
@@ -166,8 +177,7 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
                 body.append(image_data)
                 body.append("\r\n".data(using: String.Encoding.utf8)!)
                 body.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
-            }
-            
+       
             
             request.httpBody = body as Data
             
@@ -185,9 +195,66 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
                     return
                 }
                 
-                let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 
-                print(">>>>\(dataString)")
+                
+                let tmp = JSON.init(data: data!)
+                
+                if tmp["status"].stringValue == "ok"
+                {
+                    
+//                    
+//                    "product_category_id": "1",
+//                    "product_sub_category_id": "1",
+
+                            let para : Parameters = [
+                                "user_id":self.user.value(forKey: "id")!,
+                                "product_category_id": "",
+                                "product_sub_category_id": "",
+                                "name": self.itemName.text!,
+                                "image_path": tmp["message"].stringValue,
+                                "price": self.price.text!,
+                                "description": self.itemDescription.text!,
+                                "phone": self.phone.text!,
+                                "shipment": self.shippingOption.joined(separator:","),
+
+                            ]
+                    
+                            Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/login",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
+                    
+                    
+                                if response.result.value != nil {
+                    
+//                                    let tmp = JSON(data: response.result.value!)
+//                    
+//                    
+//                                        let alert = UIAlertController(title:self.userData["title"].string!, message:self.userData["message"].string!, preferredStyle: .alert)
+//                                        let ActionIdle = UIAlertAction(title:"SORRY", style: .default, handler:nil)
+//                                        alert.addAction(ActionIdle)
+//                                        self.present(alert, animated: true, completion:{
+//                                            self.password.text = ""
+//                                        })
+                                    
+                                }
+                                
+                                SVProgressHUD.dismiss()
+                            }
+                    
+                
+                }
+                else
+                {
+                    let alert = UIAlertController(title:"", message:tmp["message"].stringValue, preferredStyle:.alert)
+                    let ActionIdle = UIAlertAction(title:"ok", style: .default, handler:nil)
+                    alert.addAction(ActionIdle)
+                    self.present(alert, animated: true, completion:{})
+                    
+                }
+                print(tmp["message"].stringValue)
+
+//                {
+//                    "status" : "ok",
+//                    "message" : "group5-kaidee-resolution\/uploads\/20170512142733.png"
+//                }
                 //succes
                 
             }

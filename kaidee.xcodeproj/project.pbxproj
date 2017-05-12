@@ -17,6 +17,8 @@
 		67048D9A1EB8AA4B00CB89E0 /* chatSellerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D991EB8AA4B00CB89E0 /* chatSellerTableCell.swift */; };
 		67048D9C1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D9B1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift */; };
 		67048D9E1EB8C2C600CB89E0 /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */; };
+		6765F0641EC60BC5005CD5F1 /* ProductCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765F0631EC60BC5005CD5F1 /* ProductCategoryTableViewController.swift */; };
+		6765F0661EC60BDE005CD5F1 /* SubProductCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765F0651EC60BDE005CD5F1 /* SubProductCategoryTableViewController.swift */; };
 		677B4CFF1EB61B7B00F436EA /* categoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4CFE1EB61B7B00F436EA /* categoryCollectionCell.swift */; };
 		677B4D011EB61BC900F436EA /* itemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D001EB61BC900F436EA /* itemCollectionCell.swift */; };
 		677B4D031EB61BDE00F436EA /* adsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D021EB61BDE00F436EA /* adsCollectionCell.swift */; };
@@ -79,6 +81,8 @@
 		67048D991EB8AA4B00CB89E0 /* chatSellerTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatSellerTableCell.swift; sourceTree = "<group>"; };
 		67048D9B1EB8AA6B00CB89E0 /* chatBuyerTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatBuyerTableCell.swift; sourceTree = "<group>"; };
 		67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		6765F0631EC60BC5005CD5F1 /* ProductCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCategoryTableViewController.swift; sourceTree = "<group>"; };
+		6765F0651EC60BDE005CD5F1 /* SubProductCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubProductCategoryTableViewController.swift; sourceTree = "<group>"; };
 		677B4CFE1EB61B7B00F436EA /* categoryCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryCollectionCell.swift; sourceTree = "<group>"; };
 		677B4D001EB61BC900F436EA /* itemCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemCollectionCell.swift; sourceTree = "<group>"; };
 		677B4D021EB61BDE00F436EA /* adsCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = adsCollectionCell.swift; sourceTree = "<group>"; };
@@ -152,6 +156,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6765F0611EC60B7D005CD5F1 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				67CE2DD11EB228A000B21895 /* MyPostViewController.swift */,
+				679E6A071EC577C60032183B /* BoostViewController.swift */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		6765F0621EC60B85005CD5F1 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				67CE2DFD1EB229E000B21895 /* ChatViewController.swift */,
+				67048D971EB8A9CE00CB89E0 /* ChatMessageViewController.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
 		677B4CFD1EB61B5400F436EA /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +219,9 @@
 				677B4D1A1EB6580D00F436EA /* ProductListViewController.swift */,
 				677B4D181EB657FC00F436EA /* ProductDetailViewController.swift */,
 				679E2F601EB74B64009458BA /* FilterViewController.swift */,
+				67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */,
+				6765F0631EC60BC5005CD5F1 /* ProductCategoryTableViewController.swift */,
+				6765F0651EC60BDE005CD5F1 /* SubProductCategoryTableViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -232,18 +257,15 @@
 			children = (
 				67CE2DCD1EB228A000B21895 /* AppDelegate.swift */,
 				679449F41EC1952700129B69 /* FirstViewController.swift */,
-				679E2F621EB79252009458BA /* Home */,
-				67CE2DD11EB228A000B21895 /* MyPostViewController.swift */,
-				679E6A071EC577C60032183B /* BoostViewController.swift */,
-				67CE2DFD1EB229E000B21895 /* ChatViewController.swift */,
-				67048D971EB8A9CE00CB89E0 /* ChatMessageViewController.swift */,
-				67048D8D1EB82F5D00CB89E0 /* NotificationViewController.swift */,
-				67CE2E011EB22A0600B21895 /* ProfileViewController.swift */,
-				67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */,
 				679449F01EC15D7000129B69 /* LoginViewController.swift */,
 				67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */,
-				679449F21EC164F100129B69 /* TabBarController.swift */,
+				679E2F621EB79252009458BA /* Home */,
+				6765F0611EC60B7D005CD5F1 /* Post */,
+				6765F0621EC60B85005CD5F1 /* Chat */,
+				67048D8D1EB82F5D00CB89E0 /* NotificationViewController.swift */,
+				67CE2E011EB22A0600B21895 /* ProfileViewController.swift */,
 				67CE2DD31EB228A000B21895 /* Main.storyboard */,
+				679449F21EC164F100129B69 /* TabBarController.swift */,
 				677B4CFD1EB61B5400F436EA /* CustomCell */,
 				67CE2DD61EB228A100B21895 /* Assets.xcassets */,
 				67CE2DD81EB228A100B21895 /* LaunchScreen.storyboard */,
@@ -588,6 +610,7 @@
 				677B4CFF1EB61B7B00F436EA /* categoryCollectionCell.swift in Sources */,
 				679449F51EC1952700129B69 /* FirstViewController.swift in Sources */,
 				679E2F5F1EB74304009458BA /* settingTableCell.swift in Sources */,
+				6765F0661EC60BDE005CD5F1 /* SubProductCategoryTableViewController.swift in Sources */,
 				677B4D151EB63BF600F436EA /* iCarousel.m in Sources */,
 				67048D921EB8372F00CB89E0 /* myPostTableCell.swift in Sources */,
 				67CE2E041EB22B9500B21895 /* CategoryViewController.swift in Sources */,
@@ -599,6 +622,7 @@
 				67048D961EB86C0E00CB89E0 /* chatTableCell.swift in Sources */,
 				67048D8E1EB82F5D00CB89E0 /* NotificationViewController.swift in Sources */,
 				67C6A9A61EC47FC90018A6EA /* UserLoginViewController.swift in Sources */,
+				6765F0641EC60BC5005CD5F1 /* ProductCategoryTableViewController.swift in Sources */,
 				677B4D031EB61BDE00F436EA /* adsCollectionCell.swift in Sources */,
 				677B4D191EB657FC00F436EA /* ProductDetailViewController.swift in Sources */,
 				67048D9A1EB8AA4B00CB89E0 /* chatSellerTableCell.swift in Sources */,
