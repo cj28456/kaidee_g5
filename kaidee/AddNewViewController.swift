@@ -133,14 +133,93 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     @IBAction func addItem(_ sender: Any) {
         
+        //let image = UIImage(named: "bodrum")!
+        
+        // define parameters
+        DispatchQueue.global(qos: .background).async {
+            
+            let url = NSURL(string: "http://162.243.54.156/group5-kaidee-resolution/upload_file.php")
+            
+            let request = NSMutableURLRequest(url: url! as URL)
+            request.httpMethod = "POST"
+            
+            let boundary = "Boundary-\(NSUUID().uuidString)"
+            //define the multipart request type
+            
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            
+            
+            let body = NSMutableData()
+            
+            let fname = "test.png"
+            
+            let mimetypePhoto = "image/png"
+
+            
+            //define the data post parameter
+            if self.photoReady
+            {
+                let image_data = UIImageJPEGRepresentation(self.selectedPhoto.image!, 0.3)!
+                body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
+                body.append("Content-Disposition:form-data; name=\"fileToUpload\"; filename=\"\(fname)\"\r\n".data(using: String.Encoding.utf8)!)
+                body.append("Content-Type: \(mimetypePhoto)\r\n\r\n".data(using: String.Encoding.utf8)!)
+                body.append(image_data)
+                body.append("\r\n".data(using: String.Encoding.utf8)!)
+                body.append("--\(boundary)--\r\n".data(using: String.Encoding.utf8)!)
+            }
+            
+            
+            request.httpBody = body as Data
+            
+            let session = URLSession.shared
+            
+            
+            let task = session.dataTask(with: request as URLRequest) {
+                (
+                data, response, error) in
+                
+                guard let _:NSData = data as NSData?, let _:URLResponse = response  , error == nil else {
+                    
+                    //error
+                    
+                    return
+                }
+                
+                let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                
+                print(">>>>\(dataString)")
+                //succes
+                
+            }
+            
+            task.resume(
+                
+                print(">>>> resume")
+                
+            )
+            
+            
+            DispatchQueue.main.async {
+                
+                
+
+                
+            }
+            
+            
+            
+        }
+        
+        
+        
 //        let para : Parameters = [
 //            "username": username.text!,
 //            "password" :password.text!
 //        ]
-//        
+//
 //        Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/login",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
-//            
-//            
+//
+//
 //            if response.result.value != nil {
 //                
 //                self.userData = JSON(data: response.result.value!)
