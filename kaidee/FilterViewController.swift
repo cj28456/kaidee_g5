@@ -19,9 +19,13 @@ class FilterViewController : UIViewController,UITableViewDataSource,UITableViewD
         var max : String!
         var sort : String!
         var shipping : String!
+        var main_filter : String!
+
     }
     
     var callback : ((userFilter) -> Void)?
+    var shippingOption : Array<String> = []
+    var filter  = "price"
     
     @IBOutlet weak var shippingTableView: UITableView!
     
@@ -31,9 +35,10 @@ class FilterViewController : UIViewController,UITableViewDataSource,UITableViewD
     
     @IBOutlet weak var maxTableField: UITextField!
     
-    @IBOutlet weak var sortSegment: UISegmentedControl!
-    
-    var shippingOption : Array<String> = []
+    @IBOutlet weak var sortPriceSegment: UISegmentedControl!
+
+    @IBOutlet weak var sortRatingSegment: UISegmentedControl!
+
     
     
     override func viewDidLoad() {
@@ -51,31 +56,38 @@ class FilterViewController : UIViewController,UITableViewDataSource,UITableViewD
     
     
     
-    @IBAction func segmentedControlAction(sender: AnyObject) {
+    @IBAction func segmentPriceSort(sender: AnyObject) {
         
-        if(sortSegment.selectedSegmentIndex == 0)
+        if(sortPriceSegment.selectedSegmentIndex == 1)
         {
             sort = "asc"
         }
-        else
+        if(sortPriceSegment.selectedSegmentIndex == 2)
         {
             sort = "desc"
         }
         
+        
+    }
+    @IBAction func segmentRatingSort(_ sender: Any) {
+        
+        if(sortRatingSegment.selectedSegmentIndex == 1)
+        {
+            filter = "rating"
+        }
+        else
+        {
+            filter  = "price"
+        }
     }
     
-    @IBAction func dissmissKeyBoard(_ sender: Any) {
-        print("cancelOnTouch")
-        
-        self.view.endEditing(true)
-        
-    }
+
     
     @IBAction func submitOnTouch(_ sender: Any) {
         
         //call back after dissmiss view
         
-        callback?(userFilter.init(searchText: searchText.text!, min: minTableField.text!, max: maxTableField.text!, sort: sort ,shipping:shippingOption.joined(separator:",")))
+        callback?(userFilter.init(searchText: searchText.text!, min: minTableField.text!, max: maxTableField.text!, sort: sort ,shipping:shippingOption.joined(separator:","),main_filter:filter))
         
         self.dismiss(animated: true, completion: {});
         
@@ -128,7 +140,6 @@ class FilterViewController : UIViewController,UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        print("select row \(indexPath.row)")
         
         if let index = shippingOption.index(of: "\(indexPath.row+1)") {
             shippingOption.remove(at: index)
@@ -138,6 +149,8 @@ class FilterViewController : UIViewController,UITableViewDataSource,UITableViewD
             shippingOption.append("\(indexPath.row+1)")
         }
         
+        print("select row \(shippingOption)")
+
         shippingTableView.reloadData()
         
     }

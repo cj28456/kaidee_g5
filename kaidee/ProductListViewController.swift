@@ -14,7 +14,8 @@ import SVProgressHUD
 
 class ProductListViewController : UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    
+    let rating = ["","⭐️","⭐️⭐️","⭐️⭐️⭐️","⭐️⭐️⭐️⭐️","⭐️⭐️⭐️⭐️⭐️"]
+
     var categoryTitle : String!
     var categoryId : String!
     var subCategoryData : JSON!
@@ -77,7 +78,7 @@ class ProductListViewController : UIViewController,UICollectionViewDelegate,UICo
         cell.itemNameLabel.text = subCategoryData["product_in_subcat"][indexPath.row]["name"].stringValue
         cell.itemImage.sd_setImage(with: URL.init(string: subCategoryData["product_in_subcat"][indexPath.row]["image_path"].stringValue))
         cell.itemPriceLabel.text = subCategoryData["product_in_subcat"][indexPath.row]["price"].stringValue
-        cell.itemRatingLabel.text = "***"
+        cell.itemRatingLabel.text = rating[subCategoryData["product_in_subcat"][indexPath.row]["rating"].intValue]
         
         return cell
         
@@ -122,17 +123,19 @@ class ProductListViewController : UIViewController,UICollectionViewDelegate,UICo
                 
                 
                 
-                print("https://group5-kaidee-resolution.herokuapp.com/get_product_in_subcat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)")
-                let para : Parameters = [
-                    "search_text": filter.searchText,
-                    "min_price" : filter.min,
-                    "max_price" : filter.max,
-                    "order_by": filter.sort
-                ]
+                print("https://group5-kaidee-resolution.herokuapp.com/get_product_in_subcat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)&main_filter=\(filter.main_filter!)&shipping=\(filter.shipping!)")
+                
+                
+//                let para : Parameters = [
+//                    "search_text": filter.searchText,
+//                    "min_price" : filter.min,
+//                    "max_price" : filter.max,
+//                    "order_by": filter.sort
+//                ]
                 
                 SVProgressHUD.show()
                 //simple request
-                Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_product_in_subcat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)",method:.post, parameters: para).responseData{ response in
+                Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_product_in_subcat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)&main_filter=\(filter.main_filter!)&shipping=\(filter.shipping!)",method:.post, parameters: nil).responseData{ response in
                     
                     print("login \(response)")
                     

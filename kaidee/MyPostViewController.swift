@@ -33,6 +33,19 @@ class MyPostViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         print("https://group5-kaidee-resolution.herokuapp.com/get_my_post/\(user.value(forKey: "id")!)")
 
+
+    
+    
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.reloadTable()
+        
+    }
+    
+    func reloadTable()
+    {
         SVProgressHUD.show()
         //simple request
         Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_my_post/\(user.value(forKey: "id")!)",method:.get, parameters: nil).responseData{ response in
@@ -45,19 +58,13 @@ class MyPostViewController: UIViewController,UITableViewDelegate,UITableViewData
                 
                 print(self.postData)
                 
-
+                
                 self.myPostTableView.reloadData()
                 
             }
             
             SVProgressHUD.dismiss()
         }
-    
-    
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        
         
     }
     
@@ -102,19 +109,31 @@ class MyPostViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             let ActionAgree = UIAlertAction(title: "ตกลง", style: .default, handler:{ (_) in
                 
-                //            Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_my_post/\(user.value(forKey: "id")!)",method:.get, parameters: nil).responseData{ response in
-                //
-                //                print("login \(response)")
-                //
-                //                if response.result.value != nil {
-                //
-                //                    self.postData = JSON(data: response.result.value!)
-                //                    print(self.postData)
-                //                    
-                //                }
-                //                
-                //                SVProgressHUD.dismiss()
-                //            }
+                
+                let para : Parameters = [
+                    "product_id": self.postData[indexPath.row]["id"].stringValue
+                ]
+                
+                            Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/delete_product",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
+                
+                                print("login \(response)")
+                
+                                if response.result.value != nil {
+                
+                                    self.postData = JSON(data: response.result.value!)
+                                    
+                                    let alert = UIAlertController(title:nil, message: self.postData["message"].stringValue, preferredStyle: .alert)
+                                    let ActionIdle = UIAlertAction(title:"OK", style: .default, handler:nil)
+                                    alert.addAction(ActionIdle)
+                                    self.present(alert, animated: true, completion:{
+                                        
+                                        self.reloadTable()
+
+                                    })
+                                }
+                                
+                                SVProgressHUD.dismiss()
+                            }
                 
             })
             

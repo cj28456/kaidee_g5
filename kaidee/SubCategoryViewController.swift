@@ -15,6 +15,7 @@ import SVProgressHUD
 class SubCategoryViewController : UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
 
+    let rating = ["","⭐️","⭐️⭐️","⭐️⭐️⭐️","⭐️⭐️⭐️⭐️","⭐️⭐️⭐️⭐️⭐️"]
     var categoryTitle : String!
     var categoryId : String!
     
@@ -119,7 +120,8 @@ class SubCategoryViewController : UIViewController,UICollectionViewDelegate,UICo
         cell.itemImage.sd_setImage(with: URL.init(string: subCategoryData["product_in_cat"][indexPath.row]["image_path"].stringValue))
         
         cell.itemPriceLabel.text = subCategoryData["product_in_cat"][indexPath.row]["price"].stringValue
-        cell.itemRatingLabel.text = "***"
+        cell.itemRatingLabel.text = rating[subCategoryData["product_in_cat"][indexPath.row]["rating"].intValue]
+
         
         return cell
         
@@ -177,10 +179,10 @@ class SubCategoryViewController : UIViewController,UICollectionViewDelegate,UICo
             let svc = segue.destination as! FilterViewController
             svc.callback = { filter in
                 
-                print("https://group5-kaidee-resolution.herokuapp.com/get_product_sub_cat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)")
+                print("https://group5-kaidee-resolution.herokuapp.com/get_product_sub_cat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)&main_filter=\(filter.main_filter!)&shipping=\(filter.shipping!)")
                 SVProgressHUD.show()
                 //simple request
-                Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_product_sub_cat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)",method:.post, parameters: nil).responseData{ response in
+                Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_product_sub_cat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)&main_filter=\(filter.main_filter!)&shipping=\(filter.shipping!)",method:.post, parameters: nil).responseData{ response in
                     
                     
                     
