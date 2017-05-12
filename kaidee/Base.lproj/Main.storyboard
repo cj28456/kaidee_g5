@@ -113,7 +113,7 @@
                                                                 <rect key="frame" x="100" y="0.0" width="200" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -138,7 +138,7 @@
                                                                 <rect key="frame" x="100" y="0.0" width="200" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -163,7 +163,7 @@
                                                                 <rect key="frame" x="100" y="0.0" width="200" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -188,7 +188,7 @@
                                                                 <rect key="frame" x="100" y="0.0" width="200" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <textInputTraits key="textInputTraits"/>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="5v9-BV-ogy" id="5qu-dD-gfa"/>
                                                                 </connections>
@@ -288,6 +288,9 @@
                                                         <state key="normal" title="Submit">
                                                             <color key="titleColor" red="0.19215686269999999" green="0.50980392159999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="addItem:" destination="NNS-qx-qdh" eventType="touchUpInside" id="v2a-ET-tIE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -318,12 +321,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="itemDescription" destination="Ws3-gC-ob8" id="WOa-7J-C2e"/>
-                        <outlet property="itemName" destination="Ws3-gC-ob8" id="qlq-hk-3CY"/>
+                        <outlet property="category" destination="ooo-mh-xj4" id="Xmb-0p-G1X"/>
+                        <outlet property="itemDescription" destination="DW0-1B-eg1" id="2qt-XX-GwH"/>
+                        <outlet property="itemName" destination="Ws3-gC-ob8" id="7Qp-6K-rLM"/>
                         <outlet property="phone" destination="3mQ-jg-1ec" id="ui0-4p-fgY"/>
                         <outlet property="price" destination="bjy-xS-wPQ" id="VLt-XJ-WqF"/>
                         <outlet property="selectedPhoto" destination="BJJ-bL-dLF" id="qeT-Un-0i7"/>
                         <outlet property="shippingTableView" destination="hg7-gc-sKc" id="lSo-fE-Kvz"/>
+                        <outlet property="subCategory" destination="D6D-ky-iFG" id="cg2-JW-oSQ"/>
                         <segue destination="yDq-f3-nof" kind="show" identifier="categoryChoice" id="t4Y-9f-TDW"/>
                     </connections>
                 </viewController>
@@ -1154,7 +1159,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="300" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Nh-aY-n5u" id="ESh-e2-rHJ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -1529,9 +1534,11 @@
                     <connections>
                         <outlet property="password" destination="fTw-id-qVB" id="aVm-S6-seu"/>
                         <outlet property="username" destination="jgx-DF-TZa" id="pLo-da-8uI"/>
+                        <segue destination="cbk-oR-asC" kind="unwind" identifier="backToHomeSegue" unwindAction="unwindToHomeWithUnwindSegue:" id="6m2-Um-les"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="96J-ua-o1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cbk-oR-asC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="418" y="1501"/>
         </scene>
@@ -2146,7 +2153,7 @@
         <image name="user2" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I2X-mW-LTG"/>
+        <segue reference="xvm-Fc-n3S"/>
         <segue reference="7xv-mX-B27"/>
         <segue reference="Z3f-Wt-0ZH"/>
         <segue reference="lha-Cq-1vs"/>

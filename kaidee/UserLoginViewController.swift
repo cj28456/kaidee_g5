@@ -28,12 +28,12 @@ class UserLoginViewController: UIViewController{
     
     @IBAction func loginOnTouch(_ sender: Any) {
         
-        
+        SVProgressHUD.show()
+
         let para : Parameters = [
             "username": username.text!,
             "password" :password.text!
         ]
-        
         Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/login",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
             
             
@@ -41,19 +41,22 @@ class UserLoginViewController: UIViewController{
                 
                 self.userData = JSON(data: response.result.value!)
 
+                print("id = > \(self.userData["message"]["id"].stringValue)")
                 if self.userData["status"].stringValue == "ok"
                 {
-//                    self.user.setValue(self.userData["user_info"]["id"].stringValue, forKey:"user_id")
-//                    self.user.setValue(self.userData["user_info"]["firstname"].stringValue, forKey:"first_name")
-//                    self.user.setValue(self.userData["user_info"]["lastname"].stringValue, forKey:"last_name")
-//                    self.user.setValue(self.userData["user_info"]["imgURL"].stringValue, forKey: "profile_image")
-
+                    
+                    self.user.setValue(self.userData["message"]["id"].stringValue, forKey:"id")
+                    self.user.setValue(self.userData["message"]["first_name"].stringValue, forKey:"first_name")
+                    self.user.setValue(self.userData["message"]["last_name"].stringValue, forKey:"last_name")
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    
                 }
                 else
                 {
                 
-                    let alert = UIAlertController(title:self.userData["title"].string!, message:self.userData["message"].string!, preferredStyle: .alert)
-                    let ActionIdle = UIAlertAction(title:"SORRY", style: .default, handler:nil)
+                    let alert = UIAlertController(title:"", message:self.userData["message"].string!, preferredStyle: .alert)
+                    let ActionIdle = UIAlertAction(title:"ok", style: .default, handler:nil)
                     alert.addAction(ActionIdle)
                     self.present(alert, animated: true, completion:{
                         self.password.text = ""
@@ -64,10 +67,7 @@ class UserLoginViewController: UIViewController{
             
             SVProgressHUD.dismiss()
         }
-        
-        //https://group5-kaidee-resolution.herokuapp.com/login
-        //post
-        //username, password
+
         
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController{
     
+    let user = UserDefaults()
     
     override func viewDidLoad() {
         
@@ -19,6 +20,19 @@ class LoginViewController: UIViewController{
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+
+        if (user.value(forKey: "id") == nil)
+        {
+
+        }else
+        {
+            self.dismiss(animated: true, completion: nil)
+
+        }
+        
+        
+    }
 
     @IBAction func cancelOnTouch(_ sender: Any) {
         

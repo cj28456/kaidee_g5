@@ -7,6 +7,12 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
+import SDWebImage
+import SVProgressHUD
+
+
 
 class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -25,12 +31,15 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
     @IBOutlet var price: UITextField!
     @IBOutlet var phone: UITextField!
     
+    @IBOutlet var category: UITextField!
+    @IBOutlet var subCategory: UITextField!
 
     override func viewDidLoad() {
         
         photoAccess.delegate = self
         photoAccess.sourceType = UIImagePickerControllerSourceType.photoLibrary
         //https://group5-kaidee-resolution.herokuapp.com/add_product
+        //http://162.243.54.156/group5-kaidee-resolution/upload_file.php
         
     }
     
@@ -120,7 +129,37 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
         photoAccess.dismiss(animated: true, completion: nil)
         
         
+    }
+    
+    @IBAction func addItem(_ sender: Any) {
+        
+//        let para : Parameters = [
+//            "username": username.text!,
+//            "password" :password.text!
+//        ]
+//        
+//        Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/login",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
+//            
+//            
+//            if response.result.value != nil {
+//                
+//                self.userData = JSON(data: response.result.value!)
+//                
+//                    
+//                    let alert = UIAlertController(title:self.userData["title"].string!, message:self.userData["message"].string!, preferredStyle: .alert)
+//                    let ActionIdle = UIAlertAction(title:"SORRY", style: .default, handler:nil)
+//                    alert.addAction(ActionIdle)
+//                    self.present(alert, animated: true, completion:{
+//                        self.password.text = ""
+//                    })
+//                
+//            }
+//            
+//            SVProgressHUD.dismiss()
+//        }
+//        
         
     }
+    
     
 }
