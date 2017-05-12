@@ -40,9 +40,9 @@ class SubProductCategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if subCategoryData.count > 0
+        if subCategoryData != nil
         {
-            return subCategoryData.count
+            return subCategoryData["product_sub_cat"].count
         }
         
         return 0
@@ -51,7 +51,7 @@ class SubProductCategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "subProductCategoryCell", for: indexPath)
-        cell.textLabel?.text = subCategoryData["product_cat"][indexPath.row]["name"].stringValue
+        cell.textLabel?.text = subCategoryData["product_sub_cat"][indexPath.row]["name"].stringValue
         
         //productCategoryCell
         return cell

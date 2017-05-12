@@ -39,9 +39,9 @@ class ProductCategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if categoryData.count > 0
+        if categoryData != nil
         {
-            return categoryData.count
+            return categoryData["product_cat"].count
         }
         
         return 0
@@ -50,9 +50,9 @@ class ProductCategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCategoryCell", for: indexPath)
+        
         cell.textLabel?.text = categoryData["product_cat"][indexPath.row]["name"].stringValue
         
-        //productCategoryCell
         return cell
         
     }
@@ -69,7 +69,7 @@ class ProductCategoryTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "selectSubCategorySegue") {
-            let svc = segue.destination as! SubCategoryViewController
+            let svc = segue.destination as! SubProductCategoryTableViewController
             svc.categoryId = selectCategory
             
         }
