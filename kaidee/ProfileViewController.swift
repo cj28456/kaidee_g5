@@ -7,39 +7,55 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SDWebImage
+import SVProgressHUD
 
 class ProfileViewController : UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     let user = UserDefaults()
+    let settingList = ["ประวัติโปรโมท","รายการโปรด","ประกาศที่ดูล่าสุด"]
+    let settingIcon = ["wave_flag","star","vision"]
+    
+    var userData : JSON!
     
     struct setting {
         var title: String!
         var image: String!
     }
     
-    let settingList = ["ประวัติโปรโมท","รายการโปรด","ประกาศที่ดูล่าสุด"]
-    let settingIcon = ["wave_flag","star","vision"]
     
     @IBOutlet weak var profileTableView: UITableView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+       
+        print("req url https://group5-kaidee-resolution.herokuapp.com/get_user/\(user.value(forKey: "id")!)")
+        SVProgressHUD.show()
+
+        Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_user/\(user.value(forKey: "id")!)",method:.get).responseData{ response in
+            
+            
+            if response.result.value != nil {
+                
+                self.userData = JSON(data: response.result.value!)
+                self.profileTableView.delegate = self
+                self.profileTableView.dataSource = self
+
+                self.profileTableView.reloadData()
+                
+            }
+            
+            SVProgressHUD.dismiss()
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if user.value(forKey: "id") == nil
-        {
-            profileTableView.isHidden = true
 
-            tabBarController?.selectedIndex = 0
-        }
-        else
-        {
-            profileTableView.isHidden = false
-
-        
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,7 +88,9 @@ class ProfileViewController : UIViewController,UITableViewDelegate,UITableViewDa
         
         if indexPath.section == 0
         {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
+            let cell:profileInfoTableCell = tableView.dequeueReusableCell(withIdentifier: "profileInfoTableCell", for: indexPath) as! profileInfoTableCell
+            cell.profileId.text = "id : \(userData[indexPath.row]["id"].stringValue)"
+            cell.profileName.text = userData[indexPath.row]["first_name"].stringValue
             
             return cell
             

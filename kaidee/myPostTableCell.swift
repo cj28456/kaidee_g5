@@ -15,6 +15,7 @@ class myPostTableCell : UITableViewCell  {
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postDate: UILabel!
     @IBOutlet weak var postPrice: UILabel!
+    @IBOutlet weak var postBoost: UILabel!
     
     
 }

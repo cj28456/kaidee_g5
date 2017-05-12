@@ -123,17 +123,7 @@ class FilterViewController : UIViewController,UITableViewDataSource,UITableViewD
         
     }
     
-    
-    //     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    //
-    //        shippingOption
-    //        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
-    //
-    //            cell.accessoryType = .none
-    //
-    //        }
-    //
-    //    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

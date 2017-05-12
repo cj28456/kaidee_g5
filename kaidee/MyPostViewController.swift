@@ -7,43 +7,57 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SDWebImage
+import SVProgressHUD
 
 class MyPostViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     let user = UserDefaults()
 
+    var selectedItem : String!
     
-    struct post {
-        var postdata : String!
-        var postimg : String!
-        var posttitle : String!
-        var postprice : String!
-    }
+    var postData:JSON!
     
-    let mypost : [post]  = [ post.init(postdata: "5", postimg: "toyota1", posttitle: "Toyota 2014", postprice: "310,000"),post.init(postdata: "10", postimg: "toyota2", posttitle: "Toyota 2002", postprice: "200,000"),post.init(postdata: "10", postimg: "bmw1", posttitle: "BMW 2014", postprice: "950,000")]
+
     
     @IBOutlet weak var myPostTableView: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        myPostTableView.delegate = self
+        myPostTableView.dataSource = self
+        
+        print("https://group5-kaidee-resolution.herokuapp.com/get_my_post/\(user.value(forKey: "id")!)")
+
+        SVProgressHUD.show()
+        //simple request
+        Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_my_post/\(user.value(forKey: "id")!)",method:.get, parameters: nil).responseData{ response in
+            
+            print("login \(response)")
+            
+            if response.result.value != nil {
+                
+                self.postData = JSON(data: response.result.value!)
+                
+                print(self.postData)
+                
+
+                self.myPostTableView.reloadData()
+                
+            }
+            
+            SVProgressHUD.dismiss()
+        }
+    
+    
     }
 
     override func viewWillAppear(_ animated: Bool) {
         
-        if user.value(forKey: "id") == nil
-        {
-            myPostTableView.isHidden = true
-            
-            tabBarController?.selectedIndex = 0
-        }
-        else
-        {
-            myPostTableView.isHidden = false
-            
-            
-        }
         
     }
     
@@ -61,20 +75,99 @@ class MyPostViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         let cell : myPostTableCell = tableView.dequeueReusableCell(withIdentifier: "myPostTableCell", for: indexPath) as! myPostTableCell
         
-        cell.postDate.text = "เหลือ \(mypost[indexPath.row].postdata!) วัน"
-        cell.postImage.image = UIImage.init(named: mypost[indexPath.row].postimg!)
-        cell.postTitle.text = mypost[indexPath.row].posttitle!
-        cell.postPrice.text = "\(mypost[indexPath.row].postprice!) บาท"
-        
-            return cell
+        cell.postDate.text = postData[indexPath.row]["created_at"].stringValue
+        cell.postTitle.text = postData[indexPath.row]["name"].stringValue
+        cell.postPrice.text = "\(postData[indexPath.row]["price"].stringValue) บาท"
+        cell.postImage.sd_setImage(with: URL.init(string: postData[indexPath.row]["image_path"].stringValue))
+
+        if postData[indexPath.row]["boost"].intValue == 0 {
             
+            cell.postBoost.isHidden = true
+        }
+        else
+        {
+            cell.postBoost.isHidden = false
+        }
+        
+        return cell
 
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            
+            let alert = UIAlertController(title:"ต้องการลบสิ้นค้าชิ้นนี้?", message: "", preferredStyle: .alert)
+            
+            let ActionAgree = UIAlertAction(title: "ตกลง", style: .default, handler:{ (_) in
+                
+                //            Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_my_post/\(user.value(forKey: "id")!)",method:.get, parameters: nil).responseData{ response in
+                //
+                //                print("login \(response)")
+                //
+                //                if response.result.value != nil {
+                //
+                //                    self.postData = JSON(data: response.result.value!)
+                //                    print(self.postData)
+                //                    
+                //                }
+                //                
+                //                SVProgressHUD.dismiss()
+                //            }
+                
+            })
+            
+            let ActionCancel = UIAlertAction(title: "ยกเลิก", style: .default, handler:nil)
+            
+            alert.addAction(ActionAgree)
+            alert.addAction(ActionCancel)
+            
+            self.present(alert, animated: true, completion:{})
+            
+
+            
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+        selectedItem = postData[indexPath.row]["id"].stringValue
+        
+        self.performSegue(withIdentifier: "boostItemSegue", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "boostItemSegue") {
+            let svc = segue.destination as! BoostViewController
+            svc.itemId = selectedItem
+                    
+        }
+        //send id
+        //itemId
+        
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mypost.count
+        if postData != nil
+        {
+            return postData.count
+        }
+        else{
+            return 0
+        }
+        
     }
+        
+        
     
 
 }

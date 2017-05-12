@@ -20,18 +20,7 @@ class NotificationViewController : UIViewController,UITableViewDelegate,UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if user.value(forKey: "id") == nil
-        {
-            notiTableView.isHidden = true
-            
-            tabBarController?.selectedIndex = 0
-        }
-        else
-        {
-            notiTableView.isHidden = false
-            
-            
-        }
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

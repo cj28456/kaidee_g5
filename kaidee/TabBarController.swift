@@ -19,8 +19,8 @@ class TabBarController: UITabBarController ,UITabBarControllerDelegate{
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
     
+        user.setValue("1", forKey: "id")
         
-        print(item.badgeValue)
         if (user.value(forKey: "id") == nil)
         {
             performSegue(withIdentifier: "userLoginSegue", sender: nil)

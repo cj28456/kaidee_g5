@@ -38,7 +38,7 @@ class CategoryViewController : UIViewController,UICollectionViewDelegate,UIColle
 
         SVProgressHUD.show()
         //simple request
-        Alamofire.request(get_product_cat,method:.get, parameters: nil).responseData{ response in
+        Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_product_cat",method:.get, parameters: nil).responseData{ response in
             
             print("login \(response)")
             

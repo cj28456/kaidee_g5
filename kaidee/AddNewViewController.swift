@@ -11,18 +11,25 @@ import UIKit
 class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     let shipping = ["Kerry","Thai Post - EMS","Thai Post - Registerd Mail","aCommerce","CJGLs","DHL","FedEx","Line Man","Lalamove","รับด้วยตัวเอง"]
-
     let user = UserDefaults()
     let photoAccess = UIImagePickerController()
     
     var uploadImg : UIImage!
     var photoReady : Bool  = false
-    
+    var shippingOption : Array<String> = []
+
     @IBOutlet var shippingTableView: UITableView!
+    @IBOutlet var itemName: UITextField!
+    @IBOutlet var itemDescription: UITextField!
     @IBOutlet var selectedPhoto: UIImageView!
+    @IBOutlet var price: UITextField!
+    @IBOutlet var phone: UITextField!
+    
 
     override func viewDidLoad() {
         
+        photoAccess.delegate = self
+        photoAccess.sourceType = UIImagePickerControllerSourceType.photoLibrary
         //https://group5-kaidee-resolution.herokuapp.com/add_product
         
     }
@@ -46,6 +53,16 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
         print("\(shipping[indexPath.row])")
         cell.textLabel?.text = "\(shipping[indexPath.row])"
         cell.selectionStyle = .none
+        
+        if shippingOption.index(of: "\(indexPath.row+1)") != nil {
+            cell.accessoryType = .checkmark
+        }
+        else
+        {
+            cell.accessoryType = .none
+        }
+        
+        
         return cell
         
     }
@@ -66,10 +83,16 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         print("select row \(indexPath.row)")
         
-        
-        if let cell = tableView.cellForRow(at: indexPath) {
-            cell.accessoryType = .checkmark
+                
+        if let index = shippingOption.index(of: "\(indexPath.row+1)") {
+            shippingOption.remove(at: index)
         }
+        else
+        {
+            shippingOption.append("\(indexPath.row+1)")
+        }
+        
+        shippingTableView.reloadData()
         
     }
     
@@ -89,13 +112,12 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        
+        print(info)
         
         // Media is an image
         let uploadImg = info[UIImagePickerControllerOriginalImage] as! UIImage
         selectedPhoto.image = uploadImg
         photoAccess.dismiss(animated: true, completion: nil)
-        photoReady=true
         
         
         

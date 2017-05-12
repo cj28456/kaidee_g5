@@ -10,5 +10,7 @@ import UIKit
 
 class profileInfoTableCell: UITableViewCell {
     
+    @IBOutlet var profileName: UILabel!
+    @IBOutlet var profileId: UILabel!
     
 }
