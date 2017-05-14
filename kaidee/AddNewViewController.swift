@@ -276,36 +276,22 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             
         }
-        
-        
-        
-//        let para : Parameters = [
-//            "username": username.text!,
-//            "password" :password.text!
-//        ]
-//
-//        Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/login",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
-//
-//
-//            if response.result.value != nil {
-//                
-//                self.userData = JSON(data: response.result.value!)
-//                
-//                    
-//                    let alert = UIAlertController(title:self.userData["title"].string!, message:self.userData["message"].string!, preferredStyle: .alert)
-//                    let ActionIdle = UIAlertAction(title:"SORRY", style: .default, handler:nil)
-//                    alert.addAction(ActionIdle)
-//                    self.present(alert, animated: true, completion:{
-//                        self.password.text = ""
-//                    })
-//                
-//            }
-//            
-//            SVProgressHUD.dismiss()
-//        }
-//        
+    
         
     }
     
-    
+    @IBAction func unwindToAddView(sender: UIStoryboardSegue) {
+        
+        
+        print("maew")
+        
+        if let svc = sender.source as? SubProductCategoryTableViewController {
+        
+            category.text = svc.select.mainCatTitle!
+            subCategory.text = svc.select.subCatTitle!
+            
+         print("select cet \(svc.select.mainCat!) \(svc.select.subCat!)")
+        
+        }
+    }
 }

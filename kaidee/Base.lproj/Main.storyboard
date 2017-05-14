@@ -51,11 +51,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="subProductCategoryCell" id="o6O-O0-n7g">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subProductCategoryCell" id="o6O-O0-n7g">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6O-O0-n7g" id="sbS-Xf-Ydp">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -65,8 +65,12 @@
                             <outlet property="delegate" destination="s38-FR-Trt" id="Qpf-Xz-FOL"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="6JB-f3-4dL" kind="unwind" identifier="backToAddView" unwindAction="unwindToAddViewWithSender:" id="Uo6-8H-ezo"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AOS-M6-5mG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6JB-f3-4dL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3746" y="2304"/>
         </scene>

@@ -15,6 +15,7 @@ class ProductCategoryTableViewController: UITableViewController {
     
     var categoryData : JSON!
     var selectCategory :String!
+    var selectCategoryTitle :String!
     
     override func viewDidLoad() {
         
@@ -61,7 +62,7 @@ class ProductCategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectCategory = categoryData["product_cat"][indexPath.row]["id"].stringValue
-        
+        selectCategoryTitle = categoryData["product_cat"][indexPath.row]["name"].stringValue
         performSegue(withIdentifier: "selectSubCategorySegue", sender: nil)
         
     }
@@ -71,8 +72,10 @@ class ProductCategoryTableViewController: UITableViewController {
         if (segue.identifier == "selectSubCategorySegue") {
             let svc = segue.destination as! SubProductCategoryTableViewController
             svc.categoryId = selectCategory
+            svc.categoryTitle = selectCategoryTitle
             
         }
+        
     }
     
     
