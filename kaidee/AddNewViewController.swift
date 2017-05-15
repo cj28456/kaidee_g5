@@ -23,13 +23,17 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
     var uploadImg : UIImage!
     var photoReady : Bool  = false
     var shippingOption : Array<String> = []
-
+    
+    var selectedCategoryID : String!
+    var selectedSubCategoryID :  String!
+    
     @IBOutlet var shippingTableView: UITableView!
     @IBOutlet var itemName: UITextField!
     @IBOutlet var itemDescription: UITextField!
     @IBOutlet var selectedPhoto: UIImageView!
     @IBOutlet var price: UITextField!
     @IBOutlet var phone: UITextField!
+    @IBOutlet var location: UITextField!
     
     @IBOutlet var category: UITextField!
     @IBOutlet var subCategory: UITextField!
@@ -147,7 +151,8 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         //let image = UIImage(named: "bodrum")!
         
-        // define parameters
+        SVProgressHUD.show()
+        
         DispatchQueue.global(qos: .background).async {
             
             let url = NSURL(string: "http://162.243.54.156/group5-kaidee-resolution/upload_file.php")
@@ -170,7 +175,7 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             //define the data post parameter
     
-                let image_data = UIImageJPEGRepresentation(self.selectedPhoto.image!, 0.3)!
+                let image_data = UIImageJPEGRepresentation(self.selectedPhoto.image!, 0.1)!
                 body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8)!)
                 body.append("Content-Disposition:form-data; name=\"fileToUpload\"; filename=\"\(fname)\"\r\n".data(using: String.Encoding.utf8)!)
                 body.append("Content-Type: \(mimetypePhoto)\r\n\r\n".data(using: String.Encoding.utf8)!)
@@ -199,63 +204,71 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
                 
                 let tmp = JSON.init(data: data!)
                 
+                print(tmp)
+                //image check
                 if tmp["status"].stringValue == "ok"
                 {
                     
-//                    
-//                    "product_category_id": "1",
-//                    "product_sub_category_id": "1",
-
                             let para : Parameters = [
                                 "user_id":self.user.value(forKey: "id")!,
-                                "product_category_id": "",
-                                "product_sub_category_id": "",
+                                "product_category_id": self.selectedCategoryID,
+                                "product_sub_category_id": self.selectedSubCategoryID,
                                 "name": self.itemName.text!,
                                 "image_path": tmp["message"].stringValue,
                                 "price": self.price.text!,
                                 "description": self.itemDescription.text!,
                                 "phone": self.phone.text!,
+                                "location": self.location.text!,
                                 "shipment": self.shippingOption.joined(separator:","),
-
+                                
                             ]
                     
-                            Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/login",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
+                        print(para)
                     
+                    
+                    
+                            Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/add_product",method:.post, parameters: para,encoding: JSONEncoding.default).responseData{ response in
                     
                                 if response.result.value != nil {
                     
-//                                    let tmp = JSON(data: response.result.value!)
-//                    
-//                    
-//                                        let alert = UIAlertController(title:self.userData["title"].string!, message:self.userData["message"].string!, preferredStyle: .alert)
-//                                        let ActionIdle = UIAlertAction(title:"SORRY", style: .default, handler:nil)
-//                                        alert.addAction(ActionIdle)
-//                                        self.present(alert, animated: true, completion:{
-//                                            self.password.text = ""
-//                                        })
+                                    let tmp = JSON(data: response.result.value!)
+                    
+                    
+
+                                    let alert = UIAlertController(title:"", message:"ขอให้ขายได้ไวๆครับ", preferredStyle: .alert)
+                                    
+                                    let ActionAgree = UIAlertAction(title: "ok", style: .default, handler:{ (_) in
+                                        
+                                        self.navigationController?.popViewController(animated: true)
+                                        
+                                    })
+                                    
+                                    
+                                    alert.addAction(ActionAgree)
+                                    
+                                    self.present(alert, animated: true, completion:{})
                                     
                                 }
                                 
-                                SVProgressHUD.dismiss()
                             }
+                    
+
+                    
+                    
                     
                 
                 }
                 else
                 {
-                    let alert = UIAlertController(title:"", message:tmp["message"].stringValue, preferredStyle:.alert)
+                    let alert = UIAlertController(title:"Upload error", message:tmp["message"].stringValue, preferredStyle:.alert)
                     let ActionIdle = UIAlertAction(title:"ok", style: .default, handler:nil)
                     alert.addAction(ActionIdle)
                     self.present(alert, animated: true, completion:{})
                     
                 }
-                print(tmp["message"].stringValue)
 
-//                {
-//                    "status" : "ok",
-//                    "message" : "group5-kaidee-resolution\/uploads\/20170512142733.png"
-//                }
-                //succes
+                SVProgressHUD.dismiss()
+
                 
             }
             
@@ -289,6 +302,9 @@ class AddNewViewController: UIViewController,UITableViewDelegate,UITableViewData
         
             category.text = svc.select.mainCatTitle!
             subCategory.text = svc.select.subCatTitle!
+            selectedCategoryID = svc.select.mainCat!
+            selectedSubCategoryID = svc.select.subCat!
+            
             
          print("select cet \(svc.select.mainCat!) \(svc.select.subCat!)")
         

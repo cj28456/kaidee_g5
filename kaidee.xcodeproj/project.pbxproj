@@ -37,6 +37,7 @@
 		679E6A081EC577C60032183B /* BoostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E6A071EC577C60032183B /* BoostViewController.swift */; };
 		679E6A0A1EC57BC50032183B /* BoostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E6A091EC57BC50032183B /* BoostTableCell.swift */; };
 		67C6A9A61EC47FC90018A6EA /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */; };
+		67CA93281EC96D2D00325A96 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CA93271EC96D2D00325A96 /* RatingViewController.swift */; };
 		67CE2DCE1EB228A000B21895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCD1EB228A000B21895 /* AppDelegate.swift */; };
 		67CE2DD01EB228A000B21895 /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */; };
 		67CE2DD21EB228A000B21895 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DD11EB228A000B21895 /* MyPostViewController.swift */; };
@@ -104,6 +105,7 @@
 		679E6A071EC577C60032183B /* BoostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostViewController.swift; sourceTree = "<group>"; };
 		679E6A091EC57BC50032183B /* BoostTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostTableCell.swift; sourceTree = "<group>"; };
 		67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		67CA93271EC96D2D00325A96 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		67CE2DCA1EB228A000B21895 /* kaidee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67CE2DCD1EB228A000B21895 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */,
 				677B4D1A1EB6580D00F436EA /* ProductListViewController.swift */,
 				677B4D181EB657FC00F436EA /* ProductDetailViewController.swift */,
+				67CA93271EC96D2D00325A96 /* RatingViewController.swift */,
 				679E2F601EB74B64009458BA /* FilterViewController.swift */,
 				67048D9D1EB8C2C600CB89E0 /* AddNewViewController.swift */,
 				6765F0631EC60BC5005CD5F1 /* ProductCategoryTableViewController.swift */,
@@ -604,6 +607,7 @@
 				677B4D071EB620E100F436EA /* itemListCollectionCell.swift in Sources */,
 				67048D9E1EB8C2C600CB89E0 /* AddNewViewController.swift in Sources */,
 				67CE2E021EB22A0600B21895 /* ProfileViewController.swift in Sources */,
+				67CA93281EC96D2D00325A96 /* RatingViewController.swift in Sources */,
 				67048D901EB8322100CB89E0 /* notiTableCell.swift in Sources */,
 				679E2F611EB74B64009458BA /* FilterViewController.swift in Sources */,
 				67048D981EB8A9CE00CB89E0 /* ChatMessageViewController.swift in Sources */,
