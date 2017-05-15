@@ -10,6 +10,7 @@ target 'kaidee' do
     pod 'SDWebImage'	
     pod 'SVProgressHUD'
     pod 'IQKeyboardManagerSwift'
+    pod 'HCSStarRatingView'
 
   # Pods for kaidee
 

@@ -55,7 +55,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6O-O0-n7g" id="sbS-Xf-Ydp">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1912,7 +1912,13 @@
                             <constraint firstItem="6Mr-37-nnl" firstAttribute="top" secondItem="Bu5-ZA-YVg" secondAttribute="bottom" id="qT9-50-XjB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="อยากซื้อ" id="GBw-u3-i0P"/>
+                    <navigationItem key="navigationItem" title="อยากซื้อ" id="GBw-u3-i0P">
+                        <barButtonItem key="rightBarButtonItem" title="Rate" id="gZ3-rN-bfd">
+                            <connections>
+                                <action selector="rateItemOnTouch:" destination="zq2-75-OKU" id="TnO-eU-pvG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="createAt" destination="JLA-Pi-Y66" id="OIC-Nf-vjz"/>
                         <outlet property="phoneNumber" destination="Vtb-gQ-7je" id="XXe-PI-5H5"/>
@@ -1922,6 +1928,7 @@
                         <outlet property="productPrice" destination="eYH-gE-CeM" id="10F-tg-wmR"/>
                         <outlet property="productShipping" destination="F8t-J3-Y0G" id="qcy-l8-DQw"/>
                         <outlet property="searchDisplayController" destination="oim-Ll-5gy" id="0nl-0i-mad"/>
+                        <segue destination="VyG-cX-QqL" kind="presentation" identifier="rateItemSegue" id="VMz-2b-eB1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47A-xF-WIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1936,10 +1943,10 @@
             </objects>
             <point key="canvasLocation" x="-268.125" y="3463.7323943661972"/>
         </scene>
-        <!--View Controller-->
+        <!--Rating View Controller-->
         <scene sceneID="QVj-PO-ldD">
             <objects>
-                <viewController id="VyG-cX-QqL" sceneMemberID="viewController">
+                <viewController id="VyG-cX-QqL" customClass="RatingViewController" customModule="kaidee" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qC9-vM-mje"/>
                         <viewControllerLayoutGuide type="bottom" id="nUz-yP-2Nh"/>
@@ -1947,12 +1954,61 @@
                     <view key="view" contentMode="scaleToFill" id="tkg-xB-ZcA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate This Seller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sF-nF-eAP">
+                                <rect key="frame" x="57.5" y="152.5" width="205.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQP-kL-8EV">
+                                <rect key="frame" x="126.5" y="272.5" width="67" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonOnTouch:" destination="VyG-cX-QqL" eventType="touchUpInside" id="TV1-Yx-BC8"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0WJ-HT-MsR" customClass="HCSStarRatingView">
+                                <rect key="frame" x="50" y="208.5" width="220" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didChangeValue:" destination="VyG-cX-QqL" eventType="valueChanged" id="gf5-iD-HVc"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2sF-nF-eAP" firstAttribute="centerY" secondItem="tkg-xB-ZcA" secondAttribute="centerY" multiplier="0.6" id="0CB-XJ-tGQ"/>
+                            <constraint firstItem="wQP-kL-8EV" firstAttribute="centerX" secondItem="tkg-xB-ZcA" secondAttribute="centerX" id="DI4-Pe-NEu"/>
+                            <constraint firstItem="2sF-nF-eAP" firstAttribute="centerX" secondItem="tkg-xB-ZcA" secondAttribute="centerX" id="fUe-oA-jSg"/>
+                            <constraint firstItem="0WJ-HT-MsR" firstAttribute="centerX" secondItem="tkg-xB-ZcA" secondAttribute="centerX" id="lnV-kC-dQ1"/>
+                            <constraint firstItem="wQP-kL-8EV" firstAttribute="top" secondItem="0WJ-HT-MsR" secondAttribute="bottom" constant="20" id="osr-Mq-aff"/>
+                            <constraint firstItem="0WJ-HT-MsR" firstAttribute="top" secondItem="2sF-nF-eAP" secondAttribute="bottom" constant="20" id="xkb-sE-zJi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ratingView" destination="0WJ-HT-MsR" id="hnL-Ia-ozv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIs-rx-aWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="3784"/>
+            <point key="canvasLocation" x="722" y="3707"/>
         </scene>
         <!--Some Guy-->
         <scene sceneID="SzJ-bb-ekJ">
@@ -2240,9 +2296,9 @@
         <image name="user2" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lha-Cq-1vs"/>
         <segue reference="xvm-Fc-n3S"/>
         <segue reference="twA-5C-e3f"/>
         <segue reference="kVx-UI-3wY"/>
+        <segue reference="Yad-cV-aWL"/>
     </inferredMetricsTieBreakers>
 </document>

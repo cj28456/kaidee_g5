@@ -78,6 +78,27 @@ class ProductDetailViewController: UIViewController {
         
     }
     
+    @IBAction func rateItemOnTouch(_ sender: Any) {
+        
+        performSegue(withIdentifier: "rateItemSegue", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+
+        //product ด้านล่าง
+        if (segue.identifier == "rateItemSegue") {
+            let svc = segue.destination as! RatingViewController
+            
+            svc.user_id = self.productData["product"][0]["user_id"].stringValue
+            svc.product_id = self.productData["product"][0]["id"].stringValue
+            
+        }
+        
+        
+    }
+    
 }
 
 extension String {
