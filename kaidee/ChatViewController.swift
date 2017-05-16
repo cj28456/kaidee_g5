@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatViewController : UIViewController,UITableViewDataSource {
     
@@ -22,14 +23,31 @@ class ChatViewController : UIViewController,UITableViewDataSource {
     
     var chatMessage : [chat] = [chat.init(date: "3", message: "ของยังอยู่ไหม", userimg: "user1", username: "Jonh", itemimg: "toyota1"),chat.init(date: "10", message: "ลดได้ไหม", userimg: "user2", username: "Jack", itemimg: "toyota2")]
     
+    var ref: FIRDatabaseReference!
+
+    
     @IBOutlet var chatTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        ref = FIRDatabase.database().reference()
+    
+        ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+            if let userDict = snapshot.value as? [String:Any] {
+                //Do not cast print it directly may be score is Int not string
+                print(userDict)
+            }
+        })
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
+
         
         if user.value(forKey: "id") == nil
         {

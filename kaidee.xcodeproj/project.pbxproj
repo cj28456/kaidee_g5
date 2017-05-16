@@ -27,6 +27,7 @@
 		677B4D151EB63BF600F436EA /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D141EB63BF600F436EA /* iCarousel.m */; };
 		677B4D191EB657FC00F436EA /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D181EB657FC00F436EA /* ProductDetailViewController.swift */; };
 		677B4D1B1EB6580D00F436EA /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677B4D1A1EB6580D00F436EA /* ProductListViewController.swift */; };
+		6790B45B1ECB1057001C4012 /* ChatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6790B45A1ECB1057001C4012 /* ChatItem.swift */; };
 		679449F11EC15D7000129B69 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679449F01EC15D7000129B69 /* LoginViewController.swift */; };
 		679449F31EC164F100129B69 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679449F21EC164F100129B69 /* TabBarController.swift */; };
 		679449F51EC1952700129B69 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679449F41EC1952700129B69 /* FirstViewController.swift */; };
@@ -36,13 +37,14 @@
 		679E2F611EB74B64009458BA /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E2F601EB74B64009458BA /* FilterViewController.swift */; };
 		679E6A081EC577C60032183B /* BoostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E6A071EC577C60032183B /* BoostViewController.swift */; };
 		679E6A0A1EC57BC50032183B /* BoostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679E6A091EC57BC50032183B /* BoostTableCell.swift */; };
+		67B551051ECAA8C0000C484B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67B551041ECAA8C0000C484B /* GoogleService-Info.plist */; };
+		67B551071ECAB258000C484B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67B551061ECAB258000C484B /* Assets.xcassets */; };
 		67C6A9A61EC47FC90018A6EA /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */; };
 		67CA93281EC96D2D00325A96 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CA93271EC96D2D00325A96 /* RatingViewController.swift */; };
 		67CE2DCE1EB228A000B21895 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCD1EB228A000B21895 /* AppDelegate.swift */; };
 		67CE2DD01EB228A000B21895 /* SubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */; };
 		67CE2DD21EB228A000B21895 /* MyPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DD11EB228A000B21895 /* MyPostViewController.swift */; };
 		67CE2DD51EB228A000B21895 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CE2DD31EB228A000B21895 /* Main.storyboard */; };
-		67CE2DD71EB228A100B21895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67CE2DD61EB228A100B21895 /* Assets.xcassets */; };
 		67CE2DDA1EB228A100B21895 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CE2DD81EB228A100B21895 /* LaunchScreen.storyboard */; };
 		67CE2DE51EB228A100B21895 /* kaideeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DE41EB228A100B21895 /* kaideeTests.swift */; };
 		67CE2DF01EB228A100B21895 /* kaideeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CE2DEF1EB228A100B21895 /* kaideeUITests.swift */; };
@@ -94,6 +96,7 @@
 		677B4D141EB63BF600F436EA /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		677B4D181EB657FC00F436EA /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		677B4D1A1EB6580D00F436EA /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		6790B45A1ECB1057001C4012 /* ChatItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatItem.swift; sourceTree = "<group>"; };
 		679449F01EC15D7000129B69 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		679449F21EC164F100129B69 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		679449F41EC1952700129B69 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 		679E2F601EB74B64009458BA /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		679E6A071EC577C60032183B /* BoostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostViewController.swift; sourceTree = "<group>"; };
 		679E6A091EC57BC50032183B /* BoostTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoostTableCell.swift; sourceTree = "<group>"; };
+		67B551041ECAA8C0000C484B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		67B551061ECAB258000C484B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67C6A9A51EC47FC90018A6EA /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		67CA93271EC96D2D00325A96 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		67CE2DCA1EB228A000B21895 /* kaidee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +116,6 @@
 		67CE2DCF1EB228A000B21895 /* SubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewController.swift; sourceTree = "<group>"; };
 		67CE2DD11EB228A000B21895 /* MyPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewController.swift; sourceTree = "<group>"; };
 		67CE2DD41EB228A000B21895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		67CE2DD61EB228A100B21895 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67CE2DD91EB228A100B21895 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67CE2DDB1EB228A100B21895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67CE2DE01EB228A100B21895 /* kaideeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaideeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +176,7 @@
 			children = (
 				67CE2DFD1EB229E000B21895 /* ChatViewController.swift */,
 				67048D971EB8A9CE00CB89E0 /* ChatMessageViewController.swift */,
+				6790B45A1ECB1057001C4012 /* ChatItem.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 		677B4CFD1EB61B5400F436EA /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				67B551061ECAB258000C484B /* Assets.xcassets */,
 				679E2F591EB6EED4009458BA /* header */,
 				677B4CFE1EB61B7B00F436EA /* categoryCollectionCell.swift */,
 				677B4D041EB61C0C00F436EA /* subCategoryCollectionCell.swift */,
@@ -270,9 +276,9 @@
 				67CE2DD31EB228A000B21895 /* Main.storyboard */,
 				679449F21EC164F100129B69 /* TabBarController.swift */,
 				677B4CFD1EB61B5400F436EA /* CustomCell */,
-				67CE2DD61EB228A100B21895 /* Assets.xcassets */,
 				67CE2DD81EB228A100B21895 /* LaunchScreen.storyboard */,
 				67CE2DDB1EB228A100B21895 /* Info.plist */,
+				67B551041ECAA8C0000C484B /* GoogleService-Info.plist */,
 			);
 			path = kaidee;
 			sourceTree = "<group>";
@@ -437,7 +443,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				67CE2DDA1EB228A100B21895 /* LaunchScreen.storyboard in Resources */,
-				67CE2DD71EB228A100B21895 /* Assets.xcassets in Resources */,
+				67B551051ECAA8C0000C484B /* GoogleService-Info.plist in Resources */,
+				67B551071ECAB258000C484B /* Assets.xcassets in Resources */,
 				67CE2DD51EB228A000B21895 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -609,6 +616,7 @@
 				67CE2E021EB22A0600B21895 /* ProfileViewController.swift in Sources */,
 				67CA93281EC96D2D00325A96 /* RatingViewController.swift in Sources */,
 				67048D901EB8322100CB89E0 /* notiTableCell.swift in Sources */,
+				6790B45B1ECB1057001C4012 /* ChatItem.swift in Sources */,
 				679E2F611EB74B64009458BA /* FilterViewController.swift in Sources */,
 				67048D981EB8A9CE00CB89E0 /* ChatMessageViewController.swift in Sources */,
 				677B4CFF1EB61B7B00F436EA /* categoryCollectionCell.swift in Sources */,
@@ -785,6 +793,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1806D96F6ACDDC043E418363 /* Pods-kaidee.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4Q5F95BHL7;
@@ -803,6 +812,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 94A00EE35CC5640B3191FB3A /* Pods-kaidee.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4Q5F95BHL7;

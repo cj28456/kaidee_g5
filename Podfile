@@ -11,6 +11,8 @@ target 'kaidee' do
     pod 'SVProgressHUD'
     pod 'IQKeyboardManagerSwift'
     pod 'HCSStarRatingView'
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
 
   # Pods for kaidee
 
