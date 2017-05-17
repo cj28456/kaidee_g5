@@ -116,41 +116,7 @@ class ProductListViewController : UIViewController,UICollectionViewDelegate,UICo
         }
         
         
-        // select filter
-        if (segue.identifier == "ProductFilter") {
-            let svc = segue.destination as! FilterViewController
-            svc.callback = { filter in
-                
-                
-                
-                print("https://group5-kaidee-resolution.herokuapp.com/get_product_in_subcat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)&main_filter=\(filter.main_filter!)&shipping=\(filter.shipping!)")
-                
-                
-//                let para : Parameters = [
-//                    "search_text": filter.searchText,
-//                    "min_price" : filter.min,
-//                    "max_price" : filter.max,
-//                    "order_by": filter.sort
-//                ]
-                
-                SVProgressHUD.show()
-                //simple request
-                Alamofire.request("https://group5-kaidee-resolution.herokuapp.com/get_product_in_subcat/\(self.categoryId!)?min_price=\(filter.min!)&max_price=\(filter.max!)&order_by=\(filter.sort!)&search_text=\(filter.searchText!)&main_filter=\(filter.main_filter!)&shipping=\(filter.shipping!)",method:.post, parameters: nil).responseData{ response in
-                    
-                    print("login \(response)")
-                    
-                    if response.result.value != nil {
-                        
-                        self.subCategoryData = JSON(data: response.result.value!)
-                        self.productListCollectionView.reloadData()
-                        
-                    }
-                    
-                    SVProgressHUD.dismiss()
-                }
-            }
-        
-        }
+
     }
     
 }

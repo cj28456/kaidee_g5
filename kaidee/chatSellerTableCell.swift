@@ -15,6 +15,7 @@ class chatSellerTableCell : UITableViewCell  {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userMessage: UILabel!
     @IBOutlet weak var chatDate: UILabel!
+    @IBOutlet var userLocation: UIImageView!
     
     
 }

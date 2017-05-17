@@ -9,14 +9,26 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
+import SDWebImage
 
-class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
     
     
-
+    struct messageStrc {
+        var id :String!
+        var name : String!
+        var text : String!
+        var type : String!
+        var lat : String!
+        var long : String!
+    }
     
-
-    var ref: FIRDatabaseReference!
+    var messageArray : [messageStrc] = []
+    
+    private let messageQueryLimit: UInt = 25
+    private lazy  var messageRef: FIRDatabaseReference! = FIRDatabase.database().reference().child("messages")
+    private var newMessageRefHandle: FIRDatabaseHandle?
 
     let user = UserDefaults()
     
@@ -27,35 +39,61 @@ class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ref = FIRDatabase.database().reference(withPath: "message")
-        
-        ref.observe(.value, with: { snapshot in
-     
-            let snapshotValue = snapshot.value as! [String: AnyObject]
-
-
-            for item in snapshot.children {
-                
+        chatTextField.inputAccessoryView = UIView.init()
+        chatTextField.keyboardDistanceFromTextField = 8
+        chatTextField.delegate = self
+        observeMessages()
+    }
     
-                
-            }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.chatMessageTableView.tableViewScrollToBottom(animated: true)
 
-        })
-        
+    }
+    
+    private func observeAddNewMessage(with messageQuery: FIRDatabaseQuery) {
+        // TODO: - observe childAdded
+        newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
+            let messageData = snapshot.value as! Dictionary<String, String>
+            
+                let _id = messageData["id"] as String!
+                let _name = messageData["name"] as String!
+                let _text = messageData["text"] as String!
+                let _type = messageData["type"] as String!
+                let _lat = messageData["lat"] as String!
+                let _long = messageData["long"] as String!
+            
+            print(messageStrc.init(id: _id!, name: _name!, text: _text!, type: _type!, lat: _lat!, long: _long!))
+            self.messageArray.append(messageStrc.init(id: _id!, name: _name!, text: _text!, type: _type!, lat: _lat!, long: _long!))
+            
+            
+            self.chatMessageTableView.reloadData()
+            
 
-        
-        self.chatTextField.inputAccessoryView = UIView.init()
-        self.chatTextField.keyboardDistanceFromTextField = 8
+            self.chatMessageTableView.tableViewScrollToBottom(animated: true)
+            
+//            self.chatMessageTableView.scrollToRow(at: indexPath as IndexPath, at:.bottom, animated: true)
+            
+//                self.addMessage(withId: id, name: displayName, text: text)
+//                self.downloadCircleAvatar(with: avatar, avatarImage: self.prepareAvatarImage(with: id))
+//                self.finishReceivingMessage()
+            })
+    }
+    
+    private func observeMessages() {
+        let messageQuery = messageRef.queryLimited(toLast: messageQueryLimit)
+        observeAddNewMessage(with: messageQuery)
     }
     
     @IBAction func sendButtonOnTouch(_ sender: Any) {
     
         
-        ref.child("message").childByAutoId().setValue([
+        messageRef.childByAutoId().setValue([
+            "id":user.value(forKey: "id")!,
+            "name":user.value(forKey: "first_name"),
             "text":chatTextField.text!,
-            "sender":user.value(forKey: "first_name"),
-            "imageUrl":"-",
-            "type":"text"
+            "type":"text",
+             "lat":"-",
+            "long":"-"
             ])
         
         chatTextField.text = ""
@@ -79,35 +117,120 @@ class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    
+    
+        return messageArray.count
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let tmp = messageArray[indexPath.row].id
         
-        if ("id" == "buyer")
+        if (tmp != "\(user.value(forKey: "id")!)")
         {
             let cell : chatBuyerTableCell = tableView.dequeueReusableCell(withIdentifier: "chatBuyerTableCell", for: indexPath) as! chatBuyerTableCell
-
+      
+            cell.userName.text = messageArray[indexPath.row].name
+            cell.userMessage.text = messageArray[indexPath.row].text
+            
+            if messageArray[indexPath.row].type == "location"
+            {
+                
+                print("http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat),\(messageArray[indexPath.row].long)")
+                cell.userLocation.isHidden = false
+                cell.userLocation.sd_setImage(with: URL.init(string: "http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat!),\(messageArray[indexPath.row].long!)"))
+                
+                
+            }
+            
             return cell
         }
         else
         {
             let cell : chatSellerTableCell = tableView.dequeueReusableCell(withIdentifier: "chatSellerTableCell", for: indexPath) as! chatSellerTableCell
 
+            cell.userName.text = messageArray[indexPath.row].name
+            cell.userMessage.text = messageArray[indexPath.row].text
+
+            
+            if messageArray[indexPath.row].type == "location"
+            {
+                
+                print("http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat),\(messageArray[indexPath.row].long)")
+                cell.userLocation.isHidden = false
+                cell.userLocation.sd_setImage(with: URL.init(string: "http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat!),\(messageArray[indexPath.row].long!)"))
+                
+                
+            }
+            
             return cell
         
         }
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        self.view.endEditing(true)
+        if messageArray[indexPath.row].type == "location"
+        {
+            return 140
+        }
+        
+        return 70
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        print("tap tap")
+        self.view.endEditing(true)
+        
+        
+    }
+    
+    @IBAction func shareMap(_ sender: Any) {
+        
+        performSegue(withIdentifier: "shareMapSegue", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    
+        if (segue.identifier == "shareMapSegue") {
+            let svc = segue.destination as! ChatMapViewController
+            svc.callback = { filter in
+                
+                self.messageRef.childByAutoId().setValue([
+                    "id":self.user.value(forKey: "id")!,
+                    "name":self.user.value(forKey: "first_name"),
+                    "text":"-",
+                    "type":"location",
+                    "lat":filter.lat,
+                    "long":filter.long
+                    ])
+                
+            }
+            
+        }
+        
+    }
     
 
 }
-
+extension UITableView {
+    
+    func tableViewScrollToBottom(animated: Bool) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            
+            let numberOfSections = self.numberOfSections
+            let numberOfRows = self.numberOfRows(inSection: numberOfSections-1)
+            if numberOfRows > 0 {
+                let indexPath = IndexPath(row: numberOfRows-1, section: (numberOfSections-1))
+                self.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: animated)
+            }
+        }
+    }
+}
