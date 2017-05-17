@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 import SDWebImage
+import CoreLocation
 
 class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate {
     
@@ -25,12 +26,14 @@ class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableV
     }
     
     var messageArray : [messageStrc] = []
+    let user = UserDefaults()
+    var selectLat : String!
+    var selectLong :String!
     
     private let messageQueryLimit: UInt = 25
     private lazy  var messageRef: FIRDatabaseReference! = FIRDatabase.database().reference().child("messages")
     private var newMessageRefHandle: FIRDatabaseHandle?
 
-    let user = UserDefaults()
     
     @IBOutlet var chatTextField: UITextField!
     
@@ -137,10 +140,16 @@ class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableV
             if messageArray[indexPath.row].type == "location"
             {
                 
-                print("http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat),\(messageArray[indexPath.row].long)")
+
                 cell.userLocation.isHidden = false
                 cell.userLocation.sd_setImage(with: URL.init(string: "http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat!),\(messageArray[indexPath.row].long!)"))
+                let tapLocation = UITapGestureRecognizer(target: self, action: #selector(locationOnTouch(gesture:)))
+                cell.userLocation.addGestureRecognizer(tapLocation)
                 
+            }
+            else
+            {
+                cell.userLocation.isHidden = true
                 
             }
             
@@ -156,12 +165,17 @@ class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableV
             
             if messageArray[indexPath.row].type == "location"
             {
-                
-                print("http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat),\(messageArray[indexPath.row].long)")
+
                 cell.userLocation.isHidden = false
                 cell.userLocation.sd_setImage(with: URL.init(string: "http://maps.google.com/maps/api/staticmap?size=320x200&scale=2&maptype=roadmap&format=jpg&language=th&sensor=false&zoom=15&markers=\(messageArray[indexPath.row].lat!),\(messageArray[indexPath.row].long!)"))
+                let tapLocation = UITapGestureRecognizer(target: self, action: #selector(locationOnTouch(gesture:)))
+                cell.userLocation.addGestureRecognizer(tapLocation)
                 
-                
+            }
+            else
+            {
+                cell.userLocation.isHidden = true
+            
             }
             
             return cell
@@ -186,6 +200,21 @@ class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableV
         print("tap tap")
         self.view.endEditing(true)
         
+        if messageArray[indexPath.row].type == "location"
+        {
+            
+            selectLat =   messageArray[indexPath.row].lat!
+            selectLong =   messageArray[indexPath.row].long!
+            performSegue(withIdentifier: "openMapSegue", sender: nil)
+
+        }
+        
+    }
+    
+    func locationOnTouch(gesture: UITapGestureRecognizer)
+    {
+        
+        print(gesture)
         
     }
     
@@ -215,7 +244,17 @@ class ChatMessageViewController: UIViewController,UITableViewDataSource,UITableV
             
         }
         
+        if (segue.identifier == "openMapSegue") {
+            let svc = segue.destination as! ChaTOpenMap
+            svc.lat = selectLat
+            svc.long = selectLong
+            
+        }
+        
+        
+        
     }
+    
     
 
 }

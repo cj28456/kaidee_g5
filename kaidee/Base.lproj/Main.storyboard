@@ -2212,6 +2212,7 @@
                         <outlet property="IQLayoutGuideConstraint" destination="xJf-rS-QbQ" id="vnw-zY-bre"/>
                         <outlet property="chatMessageTableView" destination="LJu-Qj-JZ7" id="xHm-GS-WCB"/>
                         <outlet property="chatTextField" destination="yTK-0v-2gi" id="hto-TD-IGz"/>
+                        <segue destination="N7j-xC-S4q" kind="presentation" identifier="openMapSegue" id="igu-6m-UDz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x4N-rj-494" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2242,7 +2243,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diR-V6-s4k">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                                         <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Cancel">
+                                        <state key="normal" title="CANCEL">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2283,6 +2284,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QaB-sJ-rMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3228.75" y="2986.2676056338028"/>
+        </scene>
+        <!--ChaT Open Map-->
+        <scene sceneID="dLQ-qM-gNT">
+            <objects>
+                <viewController id="N7j-xC-S4q" customClass="ChaTOpenMap" customModule="kaidee" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vha-Ar-5cd"/>
+                        <viewControllerLayoutGuide type="bottom" id="8YL-ok-EQ8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dHf-ZJ-wjI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="w1c-2n-wiR">
+                                <rect key="frame" x="0.0" y="20" width="320" height="498"/>
+                                <connections>
+                                    <outlet property="delegate" destination="N7j-xC-S4q" id="otw-Kb-I1y"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cv-Sl-E4C">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.50980392159999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wVG-sY-e1h"/>
+                                </constraints>
+                                <state key="normal" title="CLOSE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="CloseOnTouch:" destination="N7j-xC-S4q" eventType="touchUpInside" id="sAy-T7-ALJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Cv-Sl-E4C" secondAttribute="trailing" id="08l-41-bom"/>
+                            <constraint firstItem="8YL-ok-EQ8" firstAttribute="top" secondItem="2Cv-Sl-E4C" secondAttribute="bottom" id="KAS-tU-4oa"/>
+                            <constraint firstItem="w1c-2n-wiR" firstAttribute="leading" secondItem="dHf-ZJ-wjI" secondAttribute="leading" id="Mfr-lF-Lm2"/>
+                            <constraint firstItem="2Cv-Sl-E4C" firstAttribute="top" secondItem="w1c-2n-wiR" secondAttribute="bottom" id="hXS-f8-rUC"/>
+                            <constraint firstItem="2Cv-Sl-E4C" firstAttribute="leading" secondItem="dHf-ZJ-wjI" secondAttribute="leading" id="jHC-E8-pdb"/>
+                            <constraint firstAttribute="trailing" secondItem="w1c-2n-wiR" secondAttribute="trailing" id="vhP-Su-eCq"/>
+                            <constraint firstItem="w1c-2n-wiR" firstAttribute="top" secondItem="Vha-Ar-5cd" secondAttribute="bottom" id="ymE-Ya-vkT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="w1c-2n-wiR" id="DfO-FS-WSe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYt-OD-LTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3021" y="3727"/>
         </scene>
         <!--พูดคุย-->
         <scene sceneID="1as-7d-vzV">
