@@ -17,7 +17,7 @@ class ProductDetailViewController: UIViewController {
     
     var productId : String!
     var productData : JSON!
-
+    let user = UserDefaults()
     
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productPrice: UILabel!
@@ -81,6 +81,22 @@ class ProductDetailViewController: UIViewController {
     @IBAction func rateItemOnTouch(_ sender: Any) {
         
         performSegue(withIdentifier: "rateItemSegue", sender: nil)
+        
+    }
+    @IBAction func ContactSellerOnTouch(_ sender: Any) {
+    
+        
+        if (user.value(forKey: "id") == nil)
+        {
+            performSegue(withIdentifier: "userChatLoginSegue", sender: nil)
+        }
+        else
+        {
+            performSegue(withIdentifier: "chatViewSegue", sender: nil)
+
+        }
+        
+        
         
     }
     

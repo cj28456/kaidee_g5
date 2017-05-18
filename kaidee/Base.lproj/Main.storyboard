@@ -1883,7 +1883,7 @@
                                                 <rect key="frame" x="0.0" y="243" width="256" height="30"/>
                                                 <state key="normal" title="Contact Seller"/>
                                                 <connections>
-                                                    <segue destination="dqQ-4m-5jV" kind="show" id="Yad-cV-aWL"/>
+                                                    <action selector="ContactSellerOnTouch:" destination="zq2-75-OKU" eventType="touchUpInside" id="Ivj-tv-AnI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1929,6 +1929,8 @@
                         <outlet property="productShipping" destination="F8t-J3-Y0G" id="qcy-l8-DQw"/>
                         <outlet property="searchDisplayController" destination="oim-Ll-5gy" id="0nl-0i-mad"/>
                         <segue destination="VyG-cX-QqL" kind="presentation" identifier="rateItemSegue" id="VMz-2b-eB1"/>
+                        <segue destination="dqQ-4m-5jV" kind="show" identifier="chatViewSegue" id="ij0-4W-YaP"/>
+                        <segue destination="9Cn-Jt-A1D" kind="presentation" identifier="userChatLoginSegue" id="Hjw-2v-mA6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47A-xF-WIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2008,7 +2010,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIs-rx-aWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="722" y="3707"/>
+            <point key="canvasLocation" x="549" y="3812"/>
         </scene>
         <!--Some Guy-->
         <scene sceneID="SzJ-bb-ekJ">
@@ -2334,7 +2336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYt-OD-LTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3021" y="3727"/>
+            <point key="canvasLocation" x="2274" y="3829"/>
         </scene>
         <!--พูดคุย-->
         <scene sceneID="1as-7d-vzV">
@@ -2456,9 +2458,9 @@
         <image name="user2" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xvm-Fc-n3S"/>
-        <segue reference="twA-5C-e3f"/>
         <segue reference="kVx-UI-3wY"/>
-        <segue reference="Yad-cV-aWL"/>
+        <segue reference="twA-5C-e3f"/>
+        <segue reference="Hjw-2v-mA6"/>
+        <segue reference="ij0-4W-YaP"/>
     </inferredMetricsTieBreakers>
 </document>

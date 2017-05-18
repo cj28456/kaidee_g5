@@ -133,4 +133,45 @@ class ProfileViewController : UIViewController,UITableViewDelegate,UITableViewDa
         }
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+            
+            if indexPath.section == 0
+            {
+
+            }
+            else if indexPath.section == 1
+            {
+                
+                
+     
+            }
+            else
+            {
+                
+                let alert = UIAlertController(title:"ต้องการออกจากระบบ?", message: "", preferredStyle: .alert)
+                
+                let ActionAgree = UIAlertAction(title: "ตกลง", style: .default, handler:{ (_) in
+                    
+                    self.user.setValue(nil, forKey:"id")
+                    self.user.setValue(nil, forKey:"first_name")
+                    self.user.setValue(nil, forKey:"last_name")
+                    self.tabBarController?.selectedIndex = 0
+                })
+                
+                let ActionCancel = UIAlertAction(title: "ยกเลิก", style: .default, handler:nil)
+                
+                alert.addAction(ActionAgree)
+                alert.addAction(ActionCancel)
+                
+                self.present(alert, animated: true, completion:{})
+                
+            }
+            
+
+        
+    }
+    
 }
