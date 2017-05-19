@@ -2,7 +2,7 @@
 //  ChatMessageViewController.swift
 //  kaidee
 //
-//  Created by toktak on 5/2/2560 BE.
+//  Created by g5 on 5/2/2560 BE.
 //  Copyright © 2560 G5. All rights reserved.
 //
 

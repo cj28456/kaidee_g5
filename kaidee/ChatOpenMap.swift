@@ -2,7 +2,7 @@
 //  ChatOpenMap.swift
 //  kaidee
 //
-//  Created by toktak on 5/17/2560 BE.
+//  Created by g5 on 5/17/2560 BE.
 //  Copyright © 2560 G5. All rights reserved.
 //
 
@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 
 class ChaTOpenMap: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
-    
     
     @IBOutlet weak var mapView: MKMapView!
     let regionRadius: CLLocationDistance = 1000
