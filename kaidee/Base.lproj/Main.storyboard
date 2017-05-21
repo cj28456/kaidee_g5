@@ -1206,8 +1206,8 @@
                                                 <rect key="frame" x="0.0" y="217" width="300" height="29"/>
                                                 <segments>
                                                     <segment title="None"/>
-                                                    <segment title="High to Low "/>
-                                                    <segment title="Low to High"/>
+                                                    <segment title="Low to High "/>
+                                                    <segment title="High to Low"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="segmentPriceSortWithSender:" destination="5v9-BV-ogy" eventType="valueChanged" id="coq-95-P17"/>
